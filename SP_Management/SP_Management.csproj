@@ -48,10 +48,10 @@
   <ItemGroup>
     <Compile Include="Classes\EnvVariable\Env.cs" />
     <Compile Include="Classes\SqlCommands\GetAll.cs" />
-    <Compile Include="Extensions\Toast.cs">
+    <Compile Include="Controls\ToastNoti\Toast.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Extensions\Toast.Designer.cs">
+    <Compile Include="Controls\ToastNoti\Toast.Designer.cs">
       <DependentUpon>Toast.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\LoginPage\Login.cs">
@@ -69,7 +69,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Extensions\Toast.resx">
+    <EmbeddedResource Include="Controls\ToastNoti\Toast.resx">
       <DependentUpon>Toast.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\LoginPage\Login.resx">
@@ -104,8 +104,6 @@
   <ItemGroup>
     <Content Include="Resources\images\Success.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controls\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
