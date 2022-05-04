@@ -12,6 +12,7 @@ namespace SP_Management
 {
     public partial class SPM : Form
     {
+       
         public SPM()
         {
             InitializeComponent();
@@ -20,7 +21,25 @@ namespace SP_Management
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Environment.GetEnvironmentVariable("DB"));
+          /*  MessageBox.Show(Environment.GetEnvironmentVariable("DB"));*/
+            
+            Toast.Success("test");
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Toast.Error("test");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Toast.Info("test");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Toast.Warning("test");
         }
     }
 }

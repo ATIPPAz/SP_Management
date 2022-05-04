@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="Class\EnvVariable\Env.cs" />
     <Compile Include="Class\SqlCommands\GetAll.cs" />
+    <Compile Include="Forms\Toast.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Toast.Designer.cs">
+      <DependentUpon>Toast.cs</DependentUpon>
+    </Compile>
     <Compile Include="SPM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,6 +62,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Toast.resx">
+      <DependentUpon>Toast.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SPM.resx">
       <DependentUpon>SPM.cs</DependentUpon>
     </EmbeddedResource>
@@ -67,6 +76,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -81,6 +91,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\images\Success.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
