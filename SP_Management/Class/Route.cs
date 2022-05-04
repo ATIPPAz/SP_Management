@@ -21,7 +21,15 @@ namespace SP_Management
             Login.TopMost = true;
             return index;
         }
-
+        public static void CreateLoginPage()
+        {
+            Login = new Login();
+            isStartUp = true;
+            Login.Show();
+            Login.TopMost = true;
+            index.Opacity = 0;
+            index.Hide();
+        }
         public static void CloseLoginForm()
         {
             Login.Close();

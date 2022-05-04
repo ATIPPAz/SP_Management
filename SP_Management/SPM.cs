@@ -50,6 +50,11 @@ namespace SP_Management
                 Route.index.Hide();
             }
         }
-        
+
+        private void Logoutbutton_Click(object sender, EventArgs e)
+        {
+            Toast.Success("Logout Success");
+            Route.CreateLoginPage();
+        }
     }
 }
