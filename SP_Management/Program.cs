@@ -16,7 +16,7 @@ namespace SP_Management
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SPM());
+            Application.Run(Route.StartUp());
         }
     }
 }

@@ -90,6 +90,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ระบบจัดการ Shopping";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.SPM_Load);
             this.ResumeLayout(false);
 
         }

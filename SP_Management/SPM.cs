@@ -12,19 +12,19 @@ namespace SP_Management
 {
     public partial class SPM : Form
     {
-       
+
         public SPM()
         {
             InitializeComponent();
-            Environment.SetEnvironmentVariable("DB","localhost");
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-          /*  MessageBox.Show(Environment.GetEnvironmentVariable("DB"));*/
-            
+            /*  MessageBox.Show(Environment.GetEnvironmentVariable("DB"));*/
+
             Toast.Success("test");
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -42,6 +42,14 @@ namespace SP_Management
             Toast.Warning("test");
         }
 
-       
+        private void SPM_Load(object sender, EventArgs e)
+        {
+            if (Route.isStartUp)
+            {
+                Route.isStartUp = false;
+                Route.index.Hide();
+            }
+        }
+        
     }
 }
