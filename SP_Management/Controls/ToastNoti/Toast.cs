@@ -50,15 +50,19 @@ namespace SP_Management
         }
         public static void Error(string message = "")
         {
-          /*  this.BackColor = Color.FromArgb(255,128,0);
-            this.LabelAlert.Text = String.IsNullOrEmpty(message) ? "Error":message;
-            
-         
-            TimerAlert.Start();*/
+            Toast toast = new Toast();
+            toast.error(message);
+            toast.Show();
+        }
+        private void error(string message = "")
+        {
+            this.BackColor = Color.FromArgb(204, 0, 0);
+            this.LabelAlert.Text = String.IsNullOrEmpty(message) ? "Error" : message;
+            TimerAlert.Start();
         }
 
 
-       
+
 
         private void TimerAlert_Tick(object sender, EventArgs e)
         {

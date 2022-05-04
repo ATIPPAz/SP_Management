@@ -40,5 +40,10 @@ namespace SP_Management
             index.Opacity = 1;
             index.Show();
         }
+        public static void CloseIndex()
+        {
+            index.Close();
+            Application.Exit();
+        }
     }
 }

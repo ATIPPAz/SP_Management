@@ -21,10 +21,218 @@ namespace SP_Management
 
         private void button1_Click(object sender, EventArgs e)
         {
+          
+            if (!CheckTextBox())
+            {
+                //ส่งข้อมูลไปหา sql
+                Toast.Success("Login Success");
+                Route.OpenIndex();
+                Route.CloseLoginForm();
+            }
+            
+        }
+
+        private void checkShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            PasswordText.PasswordChar = checkShowPassword.Checked ? '\0' : '•';
            
-            Toast.Success("Login Success");
-            Route.OpenIndex();
-            Route.CloseLoginForm();
+        }
+        private bool CheckTextBox()
+        {
+           
+            if (string.IsNullOrEmpty(UsernameText.Text))
+            {
+                Toast.Error("Please Enter Username");
+                UsernameText.Focus();
+                return true;
+            }
+            else if (string.IsNullOrEmpty(PasswordText.Text))
+            {
+                Toast.Error("Please Enter Password");
+                PasswordText.Focus();
+                return true;
+            }
+            return false;
+        }
+
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+        }
+
+        private void button1_MouseClick(object sender, MouseEventArgs e)
+        {
+        }
+
+        
+        private void UsernameText_Click(object sender, EventArgs e)
+        {
+            /* TimerUserIn.Start(); 
+             TimerPassOut.Start();
+             UsernameLine.Location = new Point(85, 257);*/
+            UsernameLine.Location = new Point(85, 242);
+            UsernameLine.Height = 3;
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            UsernameLine.Location = new Point(85, 257);
+            PasswordLine.Location = new Point(85, 330);
+            UsernameLine.Height = 0;
+            PasswordLine.Height = 0;
+        }
+
+        private void PasswordText_Click(object sender, EventArgs e)
+        {
+            /*TimerUserOut.Start();
+            TimerPassIn.Start();
+            PasswordLine.Location = new Point(85, 330);*/
+            PasswordLine.Location = new Point(85, 315);
+            PasswordLine.Height = 3;
+        }
+
+        private void TimerAnimatedUser_Tick(object sender, EventArgs e)
+        {
+            if (UsernameLine.Location.Y > 257-15) { 
+            UsernameLine.Location = new Point(85, UsernameLine.Location.Y-1);
+                if(UsernameLine.Location.Y - (257)==-5)
+                {
+                    UsernameLine.Height += 1;
+                }
+                else if (UsernameLine.Location.Y - (257) == -10)
+                {
+                    UsernameLine.Height += 1;
+                }
+                else if (UsernameLine.Location.Y - (257) == -14)
+                {
+                    UsernameLine.Height += 1;
+                }
+            }
+            else
+            {
+                UsernameLine.Location = new Point(85, 242);
+                UsernameLine.Height = 3;
+                TimerUserIn.Stop();
+            }
+        }
+
+        private void TimerUserOut_Tick(object sender, EventArgs e)
+        {
+            if (UsernameLine.Location.Y < 257 )
+            {
+                UsernameLine.Location = new Point(85, UsernameLine.Location.Y + 1);
+                if (UsernameLine.Location.Y - (257) == -5)
+                {
+                    Console.WriteLine(3);
+                    UsernameLine.Height -= 1;
+                }
+                else if (UsernameLine.Location.Y - (257) == -10)
+                {
+                    Console.WriteLine(2);
+                    UsernameLine.Height -= 1;
+                }
+                else if (UsernameLine.Location.Y - (257) == -14)
+                {
+                    Console.WriteLine(1);
+                    UsernameLine.Height -= 1;
+                }
+            }
+            else
+            {
+                UsernameLine.Height =0;
+                UsernameLine.Location = new Point(85, 257);
+                TimerUserOut.Stop();
+            }
+        }
+
+        private void TimerPassIn_Tick(object sender, EventArgs e)
+        {
+            if (PasswordLine.Location.Y > 330 - 15)
+            {
+                PasswordLine.Location = new Point(85, PasswordLine.Location.Y - 1);
+                if (PasswordLine.Location.Y - (330) == -5)
+                {
+                    PasswordLine.Height += 1;
+                }
+                else if (PasswordLine.Location.Y - (330) == -10)
+                {
+                    PasswordLine.Height += 1;
+                }
+                else if (UsernameLine.Location.Y - (330) == -14)
+                {
+                    PasswordLine.Height += 1;
+                }
+            }
+            else
+            {
+                PasswordLine.Location = new Point(85, 315);
+                PasswordLine.Height = 3;
+                TimerPassIn.Stop();
+            }
+        }
+
+        private void TimerPassOut_Tick(object sender, EventArgs e)
+        {
+
+            if (PasswordLine.Location.Y < 330)
+            {
+                PasswordLine.Location = new Point(85, PasswordLine.Location.Y + 1);
+                if (PasswordLine.Location.Y - (330) == -5)
+                {
+                   
+                    PasswordLine.Height -= 1;
+                }
+                else if (UsernameLine.Location.Y - (330) == -10)
+                {
+                    
+                    PasswordLine.Height -= 1;
+                }
+                else if (PasswordLine.Location.Y - (330) == -14)
+                {
+                  
+                    PasswordLine.Height -= 1;
+                }
+            }
+            else
+            {
+                PasswordLine.Height = 0;
+                PasswordLine.Location = new Point(85, 330);
+                TimerPassOut.Stop();
+            }
+        }
+
+        private void UsernameText_MouseHover(object sender, EventArgs e)
+        {
+            TimerUserIn.Start();
+            TimerPassOut.Start();
+            UsernameLine.Location = new Point(85, 257);
+        }
+
+        private void UsernameText_MouseLeave(object sender, EventArgs e)
+        {
+            TimerUserIn.Stop();
+            TimerUserOut.Start();
+            TimerPassOut.Start();
+        }
+
+        private void PasswordText_MouseHover(object sender, EventArgs e)
+        {
+            TimerPassIn.Start();
+            TimerUserOut.Start();
+            PasswordLine.Location = new Point(85, 330);
+        }
+
+        private void PasswordText_MouseLeave(object sender, EventArgs e)
+        {
+            TimerPassIn.Stop();
+            TimerPassOut.Start();
+            TimerUserOut.Start();
+        }
+
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            Route.CloseIndex();
         }
     }
 }
