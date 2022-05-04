@@ -46,25 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\EnvVariable\Env.cs" />
-    <Compile Include="Class\SqlCommands\GetAll.cs" />
+    <Compile Include="Classes\EnvVariable\Env.cs" />
+    <Compile Include="Classes\SqlCommands\GetAll.cs" />
     <Compile Include="Extensions\Toast.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Extensions\Toast.Designer.cs">
       <DependentUpon>Toast.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="Pages\LoginPage\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="Pages\LoginPage\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class\Route.cs" />
-    <Compile Include="SPM.cs">
+    <Compile Include="Classes\Route.cs" />
+    <Compile Include="Pages\IndexPage\SPM.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SPM.Designer.cs">
+    <Compile Include="Pages\IndexPage\SPM.Designer.cs">
       <DependentUpon>SPM.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -72,10 +72,10 @@
     <EmbeddedResource Include="Extensions\Toast.resx">
       <DependentUpon>Toast.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="Pages\LoginPage\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SPM.resx">
+    <EmbeddedResource Include="Pages\IndexPage\SPM.resx">
       <DependentUpon>SPM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -106,7 +106,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\" />
-    <Folder Include="Pages\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
