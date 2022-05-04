@@ -39,14 +39,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
+            this.buttonLogin = new System.Windows.Forms.Button();
             this.PasswordText = new System.Windows.Forms.TextBox();
             this.UsernameText = new System.Windows.Forms.TextBox();
             this.TimerUserIn = new System.Windows.Forms.Timer(this.components);
             this.TimerUserOut = new System.Windows.Forms.Timer(this.components);
             this.TimerPassIn = new System.Windows.Forms.Timer(this.components);
             this.TimerPassOut = new System.Windows.Forms.Timer(this.components);
-            this.buttonExit = new System.Windows.Forms.Button();
             this.PanelPictrue.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PanelLogin.SuspendLayout();
@@ -56,20 +56,21 @@
             // 
             this.PanelPictrue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.PanelPictrue.BackColor = System.Drawing.Color.White;
             this.PanelPictrue.Controls.Add(this.pictureBox1);
-            this.PanelPictrue.Location = new System.Drawing.Point(0, 1);
+            this.PanelPictrue.Location = new System.Drawing.Point(0, 0);
             this.PanelPictrue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelPictrue.Name = "PanelPictrue";
-            this.PanelPictrue.Size = new System.Drawing.Size(431, 577);
+            this.PanelPictrue.Size = new System.Drawing.Size(510, 600);
             this.PanelPictrue.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-427, -3);
+            this.pictureBox1.Location = new System.Drawing.Point(-578, -54);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1227, 578);
+            this.pictureBox1.Size = new System.Drawing.Size(1543, 718);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -84,19 +85,19 @@
             this.PanelLogin.Controls.Add(this.label2);
             this.PanelLogin.Controls.Add(this.label1);
             this.PanelLogin.Controls.Add(this.buttonExit);
-            this.PanelLogin.Controls.Add(this.button1);
+            this.PanelLogin.Controls.Add(this.buttonLogin);
             this.PanelLogin.Controls.Add(this.PasswordText);
             this.PanelLogin.Controls.Add(this.UsernameText);
-            this.PanelLogin.Location = new System.Drawing.Point(431, 0);
+            this.PanelLogin.Location = new System.Drawing.Point(510, 0);
             this.PanelLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelLogin.Name = "PanelLogin";
-            this.PanelLogin.Size = new System.Drawing.Size(394, 577);
+            this.PanelLogin.Size = new System.Drawing.Size(390, 600);
             this.PanelLogin.TabIndex = 1;
             // 
             // PasswordLine
             // 
             this.PasswordLine.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.PasswordLine.Location = new System.Drawing.Point(84, 315);
+            this.PasswordLine.Location = new System.Drawing.Point(85, 315);
             this.PasswordLine.Name = "PasswordLine";
             this.PasswordLine.Size = new System.Drawing.Size(232, 2);
             this.PasswordLine.TabIndex = 7;
@@ -104,7 +105,7 @@
             // UsernameLine
             // 
             this.UsernameLine.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.UsernameLine.Location = new System.Drawing.Point(84, 242);
+            this.UsernameLine.Location = new System.Drawing.Point(85, 242);
             this.UsernameLine.Name = "UsernameLine";
             this.UsernameLine.Size = new System.Drawing.Size(232, 2);
             this.UsernameLine.TabIndex = 7;
@@ -152,23 +153,39 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Welcome to SpManage";
             // 
-            // button1
+            // buttonExit
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(86, 393);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(231, 39);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            this.button1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button1_MouseClick);
-            this.button1.MouseHover += new System.EventHandler(this.button1_MouseHover);
+            this.buttonExit.BackColor = System.Drawing.Color.White;
+            this.buttonExit.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonExit.FlatAppearance.BorderSize = 2;
+            this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExit.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExit.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonExit.Location = new System.Drawing.Point(86, 450);
+            this.buttonExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(231, 39);
+            this.buttonExit.TabIndex = 3;
+            this.buttonExit.Text = "Exit";
+            this.buttonExit.UseVisualStyleBackColor = false;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+            // 
+            // buttonLogin
+            // 
+            this.buttonLogin.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonLogin.FlatAppearance.BorderSize = 0;
+            this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLogin.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLogin.ForeColor = System.Drawing.Color.White;
+            this.buttonLogin.Location = new System.Drawing.Point(86, 393);
+            this.buttonLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonLogin.Name = "buttonLogin";
+            this.buttonLogin.Size = new System.Drawing.Size(231, 39);
+            this.buttonLogin.TabIndex = 3;
+            this.buttonLogin.Text = "Login";
+            this.buttonLogin.UseVisualStyleBackColor = false;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
+            this.buttonLogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.buttonLogin_KeyDown);
             // 
             // PasswordText
             // 
@@ -182,6 +199,7 @@
             this.PasswordText.Size = new System.Drawing.Size(232, 29);
             this.PasswordText.TabIndex = 2;
             this.PasswordText.Click += new System.EventHandler(this.PasswordText_Click);
+            this.PasswordText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PasswordText_KeyDown);
             this.PasswordText.MouseLeave += new System.EventHandler(this.PasswordText_MouseLeave);
             this.PasswordText.MouseHover += new System.EventHandler(this.PasswordText_MouseHover);
             // 
@@ -196,6 +214,7 @@
             this.UsernameText.Size = new System.Drawing.Size(232, 29);
             this.UsernameText.TabIndex = 1;
             this.UsernameText.Click += new System.EventHandler(this.UsernameText_Click);
+            this.UsernameText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UsernameText_KeyDown);
             this.UsernameText.MouseLeave += new System.EventHandler(this.UsernameText_MouseLeave);
             this.UsernameText.MouseHover += new System.EventHandler(this.UsernameText_MouseHover);
             // 
@@ -219,28 +238,11 @@
             this.TimerPassOut.Interval = 1;
             this.TimerPassOut.Tick += new System.EventHandler(this.TimerPassOut_Tick);
             // 
-            // buttonExit
-            // 
-            this.buttonExit.BackColor = System.Drawing.Color.White;
-            this.buttonExit.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
-            this.buttonExit.FlatAppearance.BorderSize = 2;
-            this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonExit.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExit.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.buttonExit.Location = new System.Drawing.Point(86, 450);
-            this.buttonExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(231, 39);
-            this.buttonExit.TabIndex = 3;
-            this.buttonExit.Text = "Exit";
-            this.buttonExit.UseVisualStyleBackColor = false;
-            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(825, 577);
+            this.ClientSize = new System.Drawing.Size(900, 600);
             this.Controls.Add(this.PanelLogin);
             this.Controls.Add(this.PanelPictrue);
             this.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -265,7 +267,7 @@
         private System.Windows.Forms.Panel PanelLogin;
         private System.Windows.Forms.TextBox UsernameText;
         private System.Windows.Forms.TextBox PasswordText;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckBox checkShowPassword;
         private System.Windows.Forms.Label label3;

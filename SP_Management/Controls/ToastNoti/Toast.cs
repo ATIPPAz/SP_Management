@@ -95,7 +95,6 @@ namespace SP_Management
         {
             if(this.Opacity > 0){
                 this.Opacity-=0.01;
-                Console.WriteLine("sdsdsds");
             }
             else
             {

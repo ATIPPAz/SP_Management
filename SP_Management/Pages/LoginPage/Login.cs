@@ -19,18 +19,7 @@ namespace SP_Management
             Environment.SetEnvironmentVariable("DB","localhost");
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-          
-            if (!CheckTextBox())
-            {
-                //ส่งข้อมูลไปหา sql
-                Toast.Success("Login Success");
-                Route.OpenIndex();
-                Route.CloseLoginForm();
-            }
-            
-        }
+       
 
         private void checkShowPassword_CheckedChanged(object sender, EventArgs e)
         {
@@ -40,14 +29,16 @@ namespace SP_Management
         private bool CheckTextBox()
         {
            
-            if (string.IsNullOrEmpty(UsernameText.Text))
+            if (string.IsNullOrEmpty(UsernameText.Text) || UsernameText.Text=="")
             {
+                UsernameText.Clear();
                 Toast.Error("Please Enter Username");
                 UsernameText.Focus();
                 return true;
             }
-            else if (string.IsNullOrEmpty(PasswordText.Text))
+            if (string.IsNullOrEmpty(PasswordText.Text) || PasswordText.Text == "")
             {
+                PasswordText.Clear();
                 Toast.Error("Please Enter Password");
                 PasswordText.Focus();
                 return true;
@@ -56,13 +47,6 @@ namespace SP_Management
         }
 
 
-        private void button1_MouseHover(object sender, EventArgs e)
-        {
-        }
-
-        private void button1_MouseClick(object sender, MouseEventArgs e)
-        {
-        }
 
         
         private void UsernameText_Click(object sender, EventArgs e)
@@ -123,17 +107,17 @@ namespace SP_Management
                 UsernameLine.Location = new Point(85, UsernameLine.Location.Y + 1);
                 if (UsernameLine.Location.Y - (257) == -5)
                 {
-                    Console.WriteLine(3);
+                   
                     UsernameLine.Height -= 1;
                 }
                 else if (UsernameLine.Location.Y - (257) == -10)
                 {
-                    Console.WriteLine(2);
+                   
                     UsernameLine.Height -= 1;
                 }
                 else if (UsernameLine.Location.Y - (257) == -14)
                 {
-                    Console.WriteLine(1);
+                   
                     UsernameLine.Height -= 1;
                 }
             }
@@ -233,6 +217,41 @@ namespace SP_Management
         private void buttonExit_Click(object sender, EventArgs e)
         {
             Route.CloseIndex();
+        }
+
+        private void PasswordText_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+        void LoginProcess() 
+        {
+            if (!CheckTextBox())
+            {
+                Console.WriteLine(UsernameText.Text);
+                Console.WriteLine(PasswordText.Text);
+
+                //ส่งข้อมูลไปหา sql
+                Toast.Success("Login Success");
+                Route.OpenIndex();
+                Route.CloseLoginForm();
+            }
+        }
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            LoginProcess();
+        }
+
+        private void UsernameText_KeyDown(object sender, KeyEventArgs e)
+        {
+           
+        }
+
+        private void buttonLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                LoginProcess();
+            }
         }
     }
 }
