@@ -67,17 +67,17 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-578, -54);
+            this.pictureBox1.Location = new System.Drawing.Point(-21, 35);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1543, 718);
+            this.pictureBox1.Size = new System.Drawing.Size(558, 539);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
             // PanelLogin
             // 
-            this.PanelLogin.BackColor = System.Drawing.Color.White;
+            this.PanelLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(148)))), ((int)(((byte)(239)))));
             this.PanelLogin.Controls.Add(this.PasswordLine);
             this.PanelLogin.Controls.Add(this.UsernameLine);
             this.PanelLogin.Controls.Add(this.checkShowPassword);
@@ -113,7 +113,7 @@
             // checkShowPassword
             // 
             this.checkShowPassword.AutoSize = true;
-            this.checkShowPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(165)))), ((int)(((byte)(169)))));
+            this.checkShowPassword.ForeColor = System.Drawing.Color.White;
             this.checkShowPassword.Location = new System.Drawing.Point(152, 327);
             this.checkShowPassword.Name = "checkShowPassword";
             this.checkShowPassword.Size = new System.Drawing.Size(164, 29);
@@ -125,7 +125,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(165)))), ((int)(((byte)(169)))));
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(79, 257);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 25);
@@ -135,7 +135,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(165)))), ((int)(((byte)(169)))));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(79, 184);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(101, 25);
@@ -146,7 +146,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(33, 93);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(336, 33);
@@ -155,12 +155,12 @@
             // 
             // buttonExit
             // 
-            this.buttonExit.BackColor = System.Drawing.Color.White;
-            this.buttonExit.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(148)))), ((int)(((byte)(239)))));
+            this.buttonExit.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.buttonExit.FlatAppearance.BorderSize = 2;
             this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExit.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExit.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonExit.ForeColor = System.Drawing.Color.White;
             this.buttonExit.Location = new System.Drawing.Point(86, 450);
             this.buttonExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonExit.Name = "buttonExit";
@@ -172,7 +172,7 @@
             // 
             // buttonLogin
             // 
-            this.buttonLogin.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(236)))));
             this.buttonLogin.FlatAppearance.BorderSize = 0;
             this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogin.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -189,7 +189,7 @@
             // 
             // PasswordText
             // 
-            this.PasswordText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
+            this.PasswordText.BackColor = System.Drawing.Color.White;
             this.PasswordText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PasswordText.Location = new System.Drawing.Point(84, 284);
             this.PasswordText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -205,7 +205,7 @@
             // 
             // UsernameText
             // 
-            this.UsernameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
+            this.UsernameText.BackColor = System.Drawing.Color.White;
             this.UsernameText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.UsernameText.Location = new System.Drawing.Point(85, 211);
             this.UsernameText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
