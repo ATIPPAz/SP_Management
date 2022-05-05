@@ -68,6 +68,12 @@
     <Compile Include="Pages\IndexPage\SPM.Designer.cs">
       <DependentUpon>SPM.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\pages\SPM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\pages\SPM.Designer.cs">
+      <DependentUpon>SPM.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\ToastNoti\Toast.resx">
@@ -78,6 +84,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\IndexPage\SPM.resx">
+      <DependentUpon>SPM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\pages\SPM.resx">
       <DependentUpon>SPM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
