@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\EnvVariable\Env.cs" />
+    <Compile Include="Classes\Sql.cs" />
     <Compile Include="Classes\SqlCommands\GetAll.cs" />
     <Compile Include="Controls\ToastNoti\Toast.cs">
       <SubType>Form</SubType>
@@ -115,6 +116,8 @@
   <ItemGroup>
     <Content Include="Resources\images\Success.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Classes\Sql\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
