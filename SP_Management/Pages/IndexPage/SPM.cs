@@ -40,13 +40,22 @@ namespace SP_Management
         {
             Toast.Success("Logout Success");
             Route.CreateLoginPage(null);
+           // Route.CreateLoginPage(this);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            SPMs pMs = new SPMs();
-            pMs.Show();
-            this.Hide();
+           /* if (panel2.Width ==200)
+            {
+            panel2.Width = 50;
+            }
+            else
+            {
+                panel2.Width = 200;
+            }*/
+            panel3.Width = (panel2.Width == 200) ? panel3.Width+150 : panel3.Width-150;
+            panel3.Location = (panel2.Width == 200) ?  new Point(panel3.Location.X-150, panel3.Location.Y): new Point(panel3.Location.X + 150, panel3.Location.Y);
+            panel2.Width = (panel2.Width == 200) ? 50 : 200;
         }
     }
 }
