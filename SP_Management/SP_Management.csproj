@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,26 +47,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\EnvVariable\Env.cs" />
-    <Compile Include="Class\SqlCommands\GetAll.cs" />
-    <Compile Include="Extensions\Toast.cs">
+    <Compile Include="Classes\EnvVariable\Env.cs" />
+    <Compile Include="Classes\Sql.cs" />
+    <Compile Include="Classes\SqlCommands\GetAll.cs" />
+    <Compile Include="Controls\ToastNoti\Toast.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Extensions\Toast.Designer.cs">
+    <Compile Include="Controls\ToastNoti\Toast.Designer.cs">
       <DependentUpon>Toast.cs</DependentUpon>
     </Compile>
-    <Compile Include="SPM.cs">
+    <Compile Include="Pages\LoginPage\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SPM.Designer.cs">
+    <Compile Include="Pages\LoginPage\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Route.cs" />
+    <Compile Include="Pages\IndexPage\SPM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\IndexPage\SPM.Designer.cs">
       <DependentUpon>SPM.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Extensions\Toast.resx">
+    <EmbeddedResource Include="Controls\ToastNoti\Toast.resx">
       <DependentUpon>Toast.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SPM.resx">
+    <EmbeddedResource Include="Pages\LoginPage\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\IndexPage\SPM.resx">
       <DependentUpon>SPM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -95,8 +108,8 @@
     <Content Include="Resources\images\Success.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controls\" />
-    <Folder Include="Pages\" />
+    <Folder Include="Classes\Sql\" />
+    <Folder Include="Pages\pages\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

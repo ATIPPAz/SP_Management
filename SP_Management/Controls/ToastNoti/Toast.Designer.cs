@@ -86,6 +86,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Toast";
             this.Opacity = 0.9D;
+            this.Text = "ToastAlert";
             this.Load += new System.EventHandler(this.Toast_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PictureAlert)).EndInit();
             this.ResumeLayout(false);
