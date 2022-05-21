@@ -59,6 +59,7 @@
             this.ExitBtn = new System.Windows.Forms.Button();
             this.MinimumBtn = new System.Windows.Forms.Button();
             this.HeaderPanel = new System.Windows.Forms.Panel();
+            this.DialogPanel = new System.Windows.Forms.Panel();
             this.DisplayPanel.SuspendLayout();
             this.MenuListPanel.SuspendLayout();
             this.PanelManu.SuspendLayout();
@@ -68,7 +69,7 @@
             // button4
             // 
             this.button4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button4.Location = new System.Drawing.Point(38, -86);
+            this.button4.Location = new System.Drawing.Point(38, -72);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(86, 33);
@@ -99,10 +100,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DisplayPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.DisplayPanel.Controls.Add(this.DialogPanel);
             this.DisplayPanel.Controls.Add(this.button4);
-            this.DisplayPanel.Location = new System.Drawing.Point(237, 56);
+            this.DisplayPanel.Location = new System.Drawing.Point(206, 56);
             this.DisplayPanel.Name = "DisplayPanel";
-            this.DisplayPanel.Size = new System.Drawing.Size(1328, 811);
+            this.DisplayPanel.Size = new System.Drawing.Size(1385, 838);
             this.DisplayPanel.TabIndex = 4;
             // 
             // MenuListPanel
@@ -519,6 +521,13 @@
             this.HeaderPanel.Size = new System.Drawing.Size(1920, 50);
             this.HeaderPanel.TabIndex = 4;
             // 
+            // DialogPanel
+            // 
+            this.DialogPanel.Location = new System.Drawing.Point(430, 13);
+            this.DialogPanel.Name = "DialogPanel";
+            this.DialogPanel.Size = new System.Drawing.Size(500, 800);
+            this.DialogPanel.TabIndex = 4;
+            // 
             // SPM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 26F);
@@ -576,6 +585,7 @@
         private System.Windows.Forms.Button ExitBtn;
         private System.Windows.Forms.Button MinimumBtn;
         private System.Windows.Forms.Panel HeaderPanel;
+        private System.Windows.Forms.Panel DialogPanel;
     }
 }
 

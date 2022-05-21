@@ -12,42 +12,43 @@ namespace SP_Management.Classes.Commands
         public Employees[] Employee;
         public Employees[] GetEmployee()
         {
-            Employees[] userlist = new Employees[12];
+            
             Sql.SqlConnectionOpen();
             //Load data Employee
-            string cmd = $"select * from dbo.Employees e ";
+            string cmd = $"select * from dbo.Employees ";
             Sql.RunCommand(cmd);
             Sql._adapter.SelectCommand = Sql._command;
             DataTable EmplyeeData = new DataTable();
             Sql._adapter.Fill(EmplyeeData);
             Sql.destroyCmd();
-            Console.WriteLine(EmplyeeData.Rows.Count);
-            Employee = new Employees[12];
-            for (int i = 0; i < userlist.Length; i++)
-            {
+            Employees[] userlist = new Employees[EmplyeeData.Rows.Count];
+            Employee = new Employees[EmplyeeData.Rows.Count];
+            int idx = 0;
                 foreach (DataRow item in EmplyeeData.Rows)
                 {
-                    Employee[i] = new Employees();
-                    Employee[i].EmpID = item["EmpID"].ToString();
-                    Employee[i].EmpFName = item["EmpFName"].ToString();
-                    Employee[i].EmpLName = item["EmpLName"].ToString();
-                    Employee[i].EmpPhone = item["EmpPhone"].ToString();
-                    Employee[i].EmpDepartment = item["DeptID"].ToString();
-                    Employee[i].EmpPosition = item["PositionID"].ToString();
-                    Employee[i].EmpEmail = item["EmpEmail"].ToString();
-                    userlist[i] = new Employees();
-                    userlist[i].EmpID = "E" + (Convert.ToInt32(((item["EmpID"]).ToString().Split('E')[0] + i + 1)));
-                    userlist[i].EmpFName = item["EmpFName"].ToString();
-                    userlist[i].EmpLName = item["EmpLName"].ToString();
-                    userlist[i].EmpPhone = item["EmpPhone"].ToString();
-                    userlist[i].EmpDepartment = item["DeptID"].ToString();
-                    userlist[i].EmpPosition = item["PositionID"].ToString();
-                    userlist[i].EmpEmail = item["EmpEmail"].ToString();
+                    Employee[idx] = new Employees();
+                    Employee[idx].EmpID = item["EmpID"].ToString();
+                    Employee[idx].EmpFName = item["EmpFName"].ToString();
+                    Employee[idx].EmpLName = item["EmpLName"].ToString();
+                    Employee[idx].EmpPhone = item["EmpPhone"].ToString();
+                    Employee[idx].EmpDepartment = item["DeptID"].ToString();
+                    Employee[idx].EmpPosition = item["PositionID"].ToString();
+                    Employee[idx].EmpEmail = item["EmpEmail"].ToString();
+                    /*userlist[idx] = new Employees();
+                    userlist[idx].EmpID = item["EmpID"].ToString();
+                    userlist[idx].EmpFName = item["EmpFName"].ToString();
+                    userlist[idx].EmpLName = item["EmpLName"].ToString();
+                    userlist[idx].EmpPhone = item["EmpPhone"].ToString();
+                    userlist[idx].EmpDepartment = item["DeptID"].ToString();
+                    userlist[idx].EmpPosition = item["PositionID"].ToString();
+                    userlist[idx].EmpEmail = item["EmpEmail"].ToString();
+                    Console.WriteLine(item["EmpID"].ToString());*/
+                idx += 1;
                 }
-            }
-            //return Employee;
+            
+            return Employee;
 
-            return userlist;
+            /*return userlist;*/
         }
     }
 }

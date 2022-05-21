@@ -1,4 +1,4 @@
-﻿namespace SP_Management.Pages.HumanResource
+﻿namespace SP_Management.Pages.HumanResourcePage
 {
     partial class UserlistPage
     {
@@ -32,6 +32,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.TablePanel = new System.Windows.Forms.Panel();
+            this.BodyPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.Em = new System.Windows.Forms.Label();
@@ -41,15 +42,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.BodyPanel = new System.Windows.Forms.Panel();
             this.TablePanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(6, 6);
             this.textBox1.Margin = new System.Windows.Forms.Padding(6);
@@ -84,7 +84,7 @@
             // 
             // TablePanel
             // 
-            this.TablePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TablePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TablePanel.AutoScroll = true;
             this.TablePanel.Controls.Add(this.BodyPanel);
@@ -93,6 +93,16 @@
             this.TablePanel.Name = "TablePanel";
             this.TablePanel.Size = new System.Drawing.Size(1328, 749);
             this.TablePanel.TabIndex = 1;
+            // 
+            // BodyPanel
+            // 
+            this.BodyPanel.AutoScroll = true;
+            this.BodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BodyPanel.Location = new System.Drawing.Point(0, 50);
+            this.BodyPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.BodyPanel.Name = "BodyPanel";
+            this.BodyPanel.Size = new System.Drawing.Size(1328, 699);
+            this.BodyPanel.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
@@ -224,15 +234,6 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "Email";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // BodyPanel
-            // 
-            this.BodyPanel.AutoScroll = true;
-            this.BodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BodyPanel.Location = new System.Drawing.Point(0, 50);
-            this.BodyPanel.Name = "BodyPanel";
-            this.BodyPanel.Size = new System.Drawing.Size(1328, 699);
-            this.BodyPanel.TabIndex = 1;
             // 
             // UserlistPage
             // 

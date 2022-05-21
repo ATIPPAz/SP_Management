@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SP_Management.Classes;
-
+using SP_Management.Classes.Employee;
 namespace SP_Management
 {
     public partial class SPM : Form
@@ -28,9 +28,11 @@ namespace SP_Management
         {
             Application.Exit(); 
         }
-
+        public void ExitApplication()
+        {
+            Application.Exit();
+        }
       
-
         private void SPM_Load(object sender, EventArgs e)
         {
             if (Route.isStartUp)
@@ -208,15 +210,22 @@ namespace SP_Management
 
         private void CreateProductMktBtn_Click(object sender, EventArgs e)
         {
-            PagesManager.OpenPage("", DisplayPanel);
+            PagesManager.OpenPage("", DisplayPanel, true);
         }
         public void OpenNewUserPage()
         {
-            PagesManager.OpenPage("AddUser", DisplayPanel);
+            PagesManager.OpenPage("AddUser", DialogPanel, false);
+            DialogPanel.BringToFront();
+        }
+        public void OpenEditUserPage(string id)
+        {
+            PagesManager.OpenPage("EditUser",id, DialogPanel, false);
+            DialogPanel.BringToFront();
         }
         public void OpenUserList()
         {
-            PagesManager.OpenPage("Userlist", DisplayPanel);
+            PagesManager.OpenPage("Userlist", DisplayPanel, true);
+            DialogPanel.SendToBack();
         }
     }
 }

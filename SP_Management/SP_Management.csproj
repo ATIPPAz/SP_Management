@@ -78,6 +78,12 @@
     <Compile Include="Pages\HumanResourcePage\AddUserPage.Designer.cs">
       <DependentUpon>AddUserPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\HumanResourcePage\EditUserPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\HumanResourcePage\EditUserPage.Designer.cs">
+      <DependentUpon>EditUserPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\HumanResourcePage\UserlistPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\HumanResourcePage\AddUserPage.resx">
       <DependentUpon>AddUserPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\HumanResourcePage\EditUserPage.resx">
+      <DependentUpon>EditUserPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\HumanResourcePage\UserlistPage.resx">
       <DependentUpon>UserlistPage.cs</DependentUpon>
@@ -147,6 +156,7 @@
     <Content Include="Resources\images\MarketingIcon.png" />
     <Content Include="Resources\images\PencillIcon.png" />
     <Content Include="Resources\images\Success.png" />
+    <Content Include="Resources\images\UserIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Classes\Sql\" />

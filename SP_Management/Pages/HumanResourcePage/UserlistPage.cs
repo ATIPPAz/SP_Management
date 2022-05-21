@@ -11,7 +11,7 @@ using SP_Management.Classes.Commands;
 using SP_Management.Controls.Tables;
 using SP_Management.Classes.Employee;
 
-namespace SP_Management.Pages.HumanResource
+namespace SP_Management.Pages.HumanResourcePage
 {
     public partial class UserlistPage : UserControl
     {
@@ -22,13 +22,12 @@ namespace SP_Management.Pages.HumanResource
             getEmployees = new GetAll();
             Employees[] EmpData = getEmployees.GetEmployee();
             foreach (var Emp in EmpData)
-            {
+            { 
                 UserListTable userListTable = new UserListTable(Emp);
-                BodyPanel.Controls.Add(userListTable);
                 userListTable.Dock = DockStyle.Top;
-                userListTable.Tag = Emp.EmpID;
                 userListTable.BackColor = Color.White;
                 userListTable.ForeColor = Color.Black;
+                BodyPanel.Controls.Add(userListTable);
             }
             /* Control[] control =
              {
@@ -59,11 +58,11 @@ namespace SP_Management.Pages.HumanResource
 
         private void button1_Click(object sender, EventArgs e)
         {
-           var res = getEmployees.Employee.Where(word => word.EmpID.Contains('E'));
+           /*var res = getEmployees.Employee.Where(word => word.EmpID.Contains('E'));
             foreach (var item in res)
             {
                 Console.WriteLine(item.EmpID);
-            }
+            }*/
         }
     }
 }
