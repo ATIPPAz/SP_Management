@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SP_Management.Classes;
+using BCrypt.Net;
 
 namespace SP_Management
 {
@@ -227,13 +229,42 @@ namespace SP_Management
         {
             if (!CheckTextBox())
             {
-                Console.WriteLine(UsernameText.Text);
-                Console.WriteLine(PasswordText.Text);
-
-                //ส่งข้อมูลไปหา sql
-                Toast.Success("Login Success");
-                Route.OpenIndex();
-                Route.CloseLoginForm();
+                try
+                {
+                    string cmd = $"Select * From dbo.EmployeeAccounts e Where e.EmpUsername = '{UsernameText.Text}'";
+                    Sql.SqlConnectionOpen();
+                    Sql.RunCommand(cmd);
+                    Sql._adapter.SelectCommand = Sql._command;
+                    DataTable emp = new DataTable();
+                    Sql._adapter.Fill(emp);
+                    string password = "";
+                    foreach (DataRow row in emp.Rows)
+                    { 
+                        password = row["EmpPassword"].ToString();
+                    }
+                    if (!string.IsNullOrEmpty(password))
+                    {
+                        if (BCrypt.Net.BCrypt.Verify(PasswordText.Text, password))
+                        {
+                            Toast.Success("Login Success");
+                            Route.OpenIndex();
+                            Route.CloseLoginForm();
+                        }
+                        else
+                        {
+                            Toast.Error("Password invalid");
+                        }
+                    }
+                    else
+                    {
+                        Toast.Error("Username invalid");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "เกิดข้อผิดพลาดในการประมวลคำสั่ง SQL",
+                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
         private void buttonLogin_Click(object sender, EventArgs e)
