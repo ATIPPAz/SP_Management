@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\MiddleStore.cs" />
     <Compile Include="Classes\EnvVariable\Env.cs" />
     <Compile Include="Classes\Sql.cs" />
     <Compile Include="Classes\SqlCommands\GetAll.cs" />

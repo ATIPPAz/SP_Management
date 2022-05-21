@@ -238,15 +238,19 @@ namespace SP_Management
                     DataTable emp = new DataTable();
                     Sql._adapter.Fill(emp);
                     string password = "";
+                    string EmpID = "";
                     foreach (DataRow row in emp.Rows)
                     { 
                         password = row["EmpPassword"].ToString();
+                        EmpID = row["EmpID"].ToString();
                     }
                     if (!string.IsNullOrEmpty(password))
                     {
                         if (BCrypt.Net.BCrypt.Verify(PasswordText.Text, password))
                         {
                             Toast.Success("Login Success");
+                            Sql.destroyCmd();
+                            MiddleStore.EmpID = EmpID;
                             Route.OpenIndex();
                             Route.CloseLoginForm();
                         }

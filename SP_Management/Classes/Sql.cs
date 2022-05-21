@@ -17,6 +17,10 @@ namespace SP_Management.Classes
              _sqlConnection.Close();
              _sqlConnection.Dispose();
         }
+        public static void destroyCmd()
+        {
+            _command.Dispose();
+        }
         public static void RunCommand(string cmd)
         {
             _command = new SqlCommand(cmd,_sqlConnection);
