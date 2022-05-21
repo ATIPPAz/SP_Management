@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SP_Management.Classes;
 
 namespace SP_Management
 {
@@ -18,7 +19,6 @@ namespace SP_Management
             InitializeComponent();
             resizeMenuPanel();
             CloseAllSubMenu();
-            
         }
 
      
@@ -37,6 +37,21 @@ namespace SP_Management
                 Route.isStartUp = false;
                 Route.index.Hide();
             }
+            //Load data Employee
+            string cmd = $"select * form dbo.Employees e Where e.EmpID = {MiddleStore.EmpID}";
+            Sql.RunCommand(cmd);
+            Sql._adapter.SelectCommand = Sql._command;
+            DataTable EmplyeeData = new DataTable();
+            Sql._adapter.Fill(EmplyeeData);
+            //fillter with rule employee
+            LoadMenuListBtn();
+        }
+        void LoadMenuListBtn()
+        {
+            /*foreach (DataRow item in data)
+            {
+                
+            }*/
         }
         private void Logoutbutton_Click(object sender, EventArgs e)
         {
