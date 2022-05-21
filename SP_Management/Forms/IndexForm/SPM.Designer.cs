@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.button4 = new System.Windows.Forms.Button();
-            this.Logout = new System.Windows.Forms.Button();
-            this.HeaderPanel = new System.Windows.Forms.Panel();
             this.MenuListBtn = new System.Windows.Forms.Button();
             this.DisplayPanel = new System.Windows.Forms.Panel();
             this.MenuListPanel = new System.Windows.Forms.Panel();
@@ -53,22 +51,24 @@
             this.CreatePurchaseMktBtn = new System.Windows.Forms.Button();
             this.CreateProductMktBtn = new System.Windows.Forms.Button();
             this.MarketingBtn = new System.Windows.Forms.Button();
+            this.PanelManu = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Logout = new System.Windows.Forms.Button();
             this.ExitBtn = new System.Windows.Forms.Button();
             this.MinimumBtn = new System.Windows.Forms.Button();
-            this.PanelManu = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.HeaderPanel.SuspendLayout();
+            this.HeaderPanel = new System.Windows.Forms.Panel();
             this.DisplayPanel.SuspendLayout();
             this.MenuListPanel.SuspendLayout();
             this.PanelManu.SuspendLayout();
+            this.HeaderPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // button4
             // 
             this.button4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button4.Location = new System.Drawing.Point(38, -72);
+            this.button4.Location = new System.Drawing.Point(38, -86);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(86, 33);
@@ -77,36 +77,10 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // Logout
-            // 
-            this.Logout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Logout.Location = new System.Drawing.Point(1401, 8);
-            this.Logout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Logout.Name = "Logout";
-            this.Logout.Size = new System.Drawing.Size(86, 33);
-            this.Logout.TabIndex = 3;
-            this.Logout.Text = "Logout";
-            this.Logout.UseVisualStyleBackColor = true;
-            this.Logout.Click += new System.EventHandler(this.Logoutbutton_Click);
-            // 
-            // HeaderPanel
-            // 
-            this.HeaderPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(148)))), ((int)(((byte)(239)))));
-            this.HeaderPanel.Controls.Add(this.MinimumBtn);
-            this.HeaderPanel.Controls.Add(this.ExitBtn);
-            this.HeaderPanel.Controls.Add(this.Logout);
-            this.HeaderPanel.Location = new System.Drawing.Point(0, 0);
-            this.HeaderPanel.Name = "HeaderPanel";
-            this.HeaderPanel.Size = new System.Drawing.Size(1920, 50);
-            this.HeaderPanel.TabIndex = 4;
-            // 
             // MenuListBtn
             // 
             this.MenuListBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.MenuListBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.MenuListBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(148)))), ((int)(((byte)(239)))));
             this.MenuListBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MenuListBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.MenuListBtn.FlatAppearance.BorderSize = 0;
@@ -124,16 +98,16 @@
             this.DisplayPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DisplayPanel.BackColor = System.Drawing.Color.White;
+            this.DisplayPanel.BackColor = System.Drawing.SystemColors.Control;
             this.DisplayPanel.Controls.Add(this.button4);
-            this.DisplayPanel.Location = new System.Drawing.Point(206, 56);
+            this.DisplayPanel.Location = new System.Drawing.Point(237, 56);
             this.DisplayPanel.Name = "DisplayPanel";
-            this.DisplayPanel.Size = new System.Drawing.Size(1386, 838);
+            this.DisplayPanel.Size = new System.Drawing.Size(1328, 811);
             this.DisplayPanel.TabIndex = 4;
             // 
             // MenuListPanel
             // 
-            this.MenuListPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(97)))), ((int)(((byte)(191)))));
+            this.MenuListPanel.BackColor = System.Drawing.Color.Transparent;
             this.MenuListPanel.Controls.Add(this.OrdersSpBtn);
             this.MenuListPanel.Controls.Add(this.ShippingBtn);
             this.MenuListPanel.Controls.Add(this.UserlistHrBtn);
@@ -153,14 +127,14 @@
             this.MenuListPanel.Controls.Add(this.CreatePurchaseMktBtn);
             this.MenuListPanel.Controls.Add(this.CreateProductMktBtn);
             this.MenuListPanel.Controls.Add(this.MarketingBtn);
-            this.MenuListPanel.Location = new System.Drawing.Point(0, 50);
+            this.MenuListPanel.Location = new System.Drawing.Point(0, 53);
             this.MenuListPanel.Name = "MenuListPanel";
-            this.MenuListPanel.Size = new System.Drawing.Size(200, 850);
+            this.MenuListPanel.Size = new System.Drawing.Size(200, 782);
             this.MenuListPanel.TabIndex = 5;
             // 
             // OrdersSpBtn
             // 
-            this.OrdersSpBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.OrdersSpBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(202)))), ((int)(((byte)(255)))));
             this.OrdersSpBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.OrdersSpBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.OrdersSpBtn.FlatAppearance.BorderSize = 0;
@@ -176,7 +150,7 @@
             // 
             // ShippingBtn
             // 
-            this.ShippingBtn.BackColor = System.Drawing.Color.Gainsboro;
+            this.ShippingBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(148)))), ((int)(((byte)(239)))));
             this.ShippingBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.ShippingBtn.FlatAppearance.BorderSize = 0;
             this.ShippingBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -191,7 +165,7 @@
             // 
             // UserlistHrBtn
             // 
-            this.UserlistHrBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.UserlistHrBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(202)))), ((int)(((byte)(255)))));
             this.UserlistHrBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UserlistHrBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.UserlistHrBtn.FlatAppearance.BorderSize = 0;
@@ -208,7 +182,7 @@
             // 
             // HrBtn
             // 
-            this.HrBtn.BackColor = System.Drawing.Color.Gainsboro;
+            this.HrBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(148)))), ((int)(((byte)(239)))));
             this.HrBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.HrBtn.FlatAppearance.BorderSize = 0;
             this.HrBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -223,7 +197,7 @@
             // 
             // ExpensesFnBtn
             // 
-            this.ExpensesFnBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.ExpensesFnBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(202)))), ((int)(((byte)(255)))));
             this.ExpensesFnBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ExpensesFnBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.ExpensesFnBtn.FlatAppearance.BorderSize = 0;
@@ -239,7 +213,7 @@
             // 
             // RevenueFnBtn
             // 
-            this.RevenueFnBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.RevenueFnBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(202)))), ((int)(((byte)(255)))));
             this.RevenueFnBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RevenueFnBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.RevenueFnBtn.FlatAppearance.BorderSize = 0;
@@ -255,7 +229,7 @@
             // 
             // FinanceBtn
             // 
-            this.FinanceBtn.BackColor = System.Drawing.Color.Gainsboro;
+            this.FinanceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(148)))), ((int)(((byte)(239)))));
             this.FinanceBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.FinanceBtn.FlatAppearance.BorderSize = 0;
             this.FinanceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -270,7 +244,7 @@
             // 
             // PurchasePcBtn
             // 
-            this.PurchasePcBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.PurchasePcBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(202)))), ((int)(((byte)(255)))));
             this.PurchasePcBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PurchasePcBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.PurchasePcBtn.FlatAppearance.BorderSize = 0;
@@ -286,7 +260,7 @@
             // 
             // ReceiptionPcBtn
             // 
-            this.ReceiptionPcBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.ReceiptionPcBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(202)))), ((int)(((byte)(255)))));
             this.ReceiptionPcBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ReceiptionPcBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.ReceiptionPcBtn.FlatAppearance.BorderSize = 0;
@@ -302,7 +276,7 @@
             // 
             // PurchasingBtn
             // 
-            this.PurchasingBtn.BackColor = System.Drawing.Color.Gainsboro;
+            this.PurchasingBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(148)))), ((int)(((byte)(239)))));
             this.PurchasingBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.PurchasingBtn.FlatAppearance.BorderSize = 0;
             this.PurchasingBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -317,7 +291,7 @@
             // 
             // RequisitionPkBtn
             // 
-            this.RequisitionPkBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.RequisitionPkBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(202)))), ((int)(((byte)(255)))));
             this.RequisitionPkBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RequisitionPkBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.RequisitionPkBtn.FlatAppearance.BorderSize = 0;
@@ -333,7 +307,7 @@
             // 
             // OrderPkBtn
             // 
-            this.OrderPkBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.OrderPkBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(202)))), ((int)(((byte)(255)))));
             this.OrderPkBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.OrderPkBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.OrderPkBtn.FlatAppearance.BorderSize = 0;
@@ -349,7 +323,7 @@
             // 
             // PackingBtn
             // 
-            this.PackingBtn.BackColor = System.Drawing.Color.Gainsboro;
+            this.PackingBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(148)))), ((int)(((byte)(239)))));
             this.PackingBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.PackingBtn.FlatAppearance.BorderSize = 0;
             this.PackingBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -364,7 +338,7 @@
             // 
             // ReceiptionWhBtn
             // 
-            this.ReceiptionWhBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.ReceiptionWhBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(202)))), ((int)(((byte)(255)))));
             this.ReceiptionWhBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ReceiptionWhBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.ReceiptionWhBtn.FlatAppearance.BorderSize = 0;
@@ -380,7 +354,7 @@
             // 
             // RequisitionWhBtn
             // 
-            this.RequisitionWhBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.RequisitionWhBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(202)))), ((int)(((byte)(255)))));
             this.RequisitionWhBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RequisitionWhBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.RequisitionWhBtn.FlatAppearance.BorderSize = 0;
@@ -396,7 +370,7 @@
             // 
             // WarehouseBtn
             // 
-            this.WarehouseBtn.BackColor = System.Drawing.Color.Gainsboro;
+            this.WarehouseBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(148)))), ((int)(((byte)(239)))));
             this.WarehouseBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.WarehouseBtn.FlatAppearance.BorderSize = 0;
             this.WarehouseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -411,7 +385,7 @@
             // 
             // CreatePurchaseMktBtn
             // 
-            this.CreatePurchaseMktBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.CreatePurchaseMktBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(202)))), ((int)(((byte)(255)))));
             this.CreatePurchaseMktBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CreatePurchaseMktBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.CreatePurchaseMktBtn.FlatAppearance.BorderSize = 0;
@@ -427,7 +401,7 @@
             // 
             // CreateProductMktBtn
             // 
-            this.CreateProductMktBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.CreateProductMktBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(202)))), ((int)(((byte)(255)))));
             this.CreateProductMktBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CreateProductMktBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.CreateProductMktBtn.FlatAppearance.BorderSize = 0;
@@ -444,7 +418,7 @@
             // 
             // MarketingBtn
             // 
-            this.MarketingBtn.BackColor = System.Drawing.Color.Gainsboro;
+            this.MarketingBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(148)))), ((int)(((byte)(239)))));
             this.MarketingBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MarketingBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.MarketingBtn.FlatAppearance.BorderSize = 0;
@@ -457,6 +431,55 @@
             this.MarketingBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.MarketingBtn.UseVisualStyleBackColor = false;
             this.MarketingBtn.Click += new System.EventHandler(this.MarketingBtn_Click);
+            // 
+            // PanelManu
+            // 
+            this.PanelManu.BackColor = System.Drawing.Color.White;
+            this.PanelManu.Controls.Add(this.label3);
+            this.PanelManu.Controls.Add(this.label2);
+            this.PanelManu.Controls.Add(this.label1);
+            this.PanelManu.Controls.Add(this.MenuListPanel);
+            this.PanelManu.Controls.Add(this.MenuListBtn);
+            this.PanelManu.Location = new System.Drawing.Point(0, 56);
+            this.PanelManu.Name = "PanelManu";
+            this.PanelManu.Size = new System.Drawing.Size(200, 838);
+            this.PanelManu.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(11, 35);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(30, 2);
+            this.label3.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(11, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(30, 2);
+            this.label2.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(11, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(30, 2);
+            this.label1.TabIndex = 6;
+            // 
+            // Logout
+            // 
+            this.Logout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Logout.Location = new System.Drawing.Point(1401, 8);
+            this.Logout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Logout.Name = "Logout";
+            this.Logout.Size = new System.Drawing.Size(86, 33);
+            this.Logout.TabIndex = 3;
+            this.Logout.Text = "Logout";
+            this.Logout.UseVisualStyleBackColor = true;
+            this.Logout.Click += new System.EventHandler(this.Logoutbutton_Click);
             // 
             // ExitBtn
             // 
@@ -482,42 +505,19 @@
             this.MinimumBtn.UseVisualStyleBackColor = true;
             this.MinimumBtn.Click += new System.EventHandler(this.MinimumBtn_Click);
             // 
-            // PanelManu
+            // HeaderPanel
             // 
-            this.PanelManu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(97)))), ((int)(((byte)(191)))));
-            this.PanelManu.Controls.Add(this.label3);
-            this.PanelManu.Controls.Add(this.label2);
-            this.PanelManu.Controls.Add(this.label1);
-            this.PanelManu.Controls.Add(this.MenuListPanel);
-            this.PanelManu.Controls.Add(this.MenuListBtn);
-            this.PanelManu.Location = new System.Drawing.Point(0, 56);
-            this.PanelManu.Name = "PanelManu";
-            this.PanelManu.Size = new System.Drawing.Size(200, 838);
-            this.PanelManu.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(11, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 2);
-            this.label1.TabIndex = 6;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(11, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 2);
-            this.label2.TabIndex = 6;
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(11, 35);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 2);
-            this.label3.TabIndex = 6;
+            this.HeaderPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(148)))), ((int)(((byte)(239)))));
+            this.HeaderPanel.Controls.Add(this.MinimumBtn);
+            this.HeaderPanel.Controls.Add(this.ExitBtn);
+            this.HeaderPanel.Controls.Add(this.Logout);
+            this.HeaderPanel.Location = new System.Drawing.Point(0, 0);
+            this.HeaderPanel.Name = "HeaderPanel";
+            this.HeaderPanel.Size = new System.Drawing.Size(1920, 50);
+            this.HeaderPanel.TabIndex = 4;
             // 
             // SPM
             // 
@@ -535,10 +535,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ระบบจัดการ Shopping";
             this.Load += new System.EventHandler(this.SPM_Load);
-            this.HeaderPanel.ResumeLayout(false);
             this.DisplayPanel.ResumeLayout(false);
             this.MenuListPanel.ResumeLayout(false);
             this.PanelManu.ResumeLayout(false);
+            this.HeaderPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -546,8 +546,6 @@
         #endregion
 
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button Logout;
-        private System.Windows.Forms.Panel HeaderPanel;
         private System.Windows.Forms.Panel DisplayPanel;
         private System.Windows.Forms.Button MenuListBtn;
         private System.Windows.Forms.Panel MenuListPanel;
@@ -570,12 +568,14 @@
         private System.Windows.Forms.Button RequisitionPkBtn;
         private System.Windows.Forms.Button OrderPkBtn;
         private System.Windows.Forms.Button PackingBtn;
-        private System.Windows.Forms.Button MinimumBtn;
-        private System.Windows.Forms.Button ExitBtn;
         private System.Windows.Forms.Panel PanelManu;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button Logout;
+        private System.Windows.Forms.Button ExitBtn;
+        private System.Windows.Forms.Button MinimumBtn;
+        private System.Windows.Forms.Panel HeaderPanel;
     }
 }
 

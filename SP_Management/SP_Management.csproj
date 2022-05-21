@@ -143,6 +143,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\images\DeleteIcon.png" />
+    <Content Include="Resources\images\MarketingIcon.png" />
+    <Content Include="Resources\images\PencillIcon.png" />
     <Content Include="Resources\images\Success.png" />
   </ItemGroup>
   <ItemGroup>

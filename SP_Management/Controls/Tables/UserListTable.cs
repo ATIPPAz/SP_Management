@@ -27,24 +27,26 @@ namespace SP_Management.Controls.Tables
 
         private void UserListTable_Load(object sender, EventArgs e)
         {
-            txtEmpID.Text = emp.EmpID;
-            txtFName.Text = emp.EmpFName;
-            txtEmpLName.Text = emp.EmpLName;
-            txtEmpPhone.Text = emp.EmpPhone;
-            txtEmpDepartment.Text = emp.EmpDepartment;
-            txtEmpPosition.Text = emp.EmpPosition;
-            txtEmpEmail.Text = emp.EmpEmail;
-            Console.WriteLine(1);
+            if(emp != null)
+            {
+                txtEmpID.Text = emp.EmpID;
+                txtFName.Text = emp.EmpFName;
+                txtEmpLName.Text = emp.EmpLName;
+                txtEmpPhone.Text = emp.EmpPhone;
+                txtEmpDepartment.Text = emp.EmpDepartment;
+                txtEmpPosition.Text = emp.EmpPosition;
+                txtEmpEmail.Text = emp.EmpEmail;
+            }
         }
 
         private void EditBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("ยิงapi "+emp.EmpID);
+            MessageBox.Show("ดึงข้อมูล ID "+emp.EmpID);
         }
 
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("ลบ " + emp.EmpID);
+            MessageBox.Show("ลบ ID" + emp.EmpID);
         }
     }
 }
