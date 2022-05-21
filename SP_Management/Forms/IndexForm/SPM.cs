@@ -18,6 +18,7 @@ namespace SP_Management
         {
             InitializeComponent();
             resizeMenuPanel();
+            resizeMenuPanel();
             CloseAllSubMenu();
         }
 
@@ -37,12 +38,14 @@ namespace SP_Management
                 Route.isStartUp = false;
                 Route.index.Hide();
             }
+            Sql.SqlConnectionOpen();
             //Load data Employee
-            string cmd = $"select * form dbo.Employees e Where e.EmpID = {MiddleStore.EmpID}";
+            string cmd = $"select * from dbo.Employees e Where e.EmpID = '{MiddleStore.EmpID}'";
             Sql.RunCommand(cmd);
             Sql._adapter.SelectCommand = Sql._command;
             DataTable EmplyeeData = new DataTable();
             Sql._adapter.Fill(EmplyeeData);
+            Sql.destroyCmd();
             //fillter with rule employee
             LoadMenuListBtn();
         }
@@ -62,9 +65,10 @@ namespace SP_Management
 
         void resizeMenuPanel()
         {
-            DisplayPanel.Width = (MenuListPanel.Width == 200) ? DisplayPanel.Width + 195 : DisplayPanel.Width - 195;
-            DisplayPanel.Location = (MenuListPanel.Width == 200) ? new Point(DisplayPanel.Location.X - 195, DisplayPanel.Location.Y) : new Point(DisplayPanel.Location.X + 195, DisplayPanel.Location.Y);
-            MenuListPanel.Width = (MenuListPanel.Width == 200) ? 0 : 200;
+            DisplayPanel.Width = (MenuListPanel.Width == 200) ? DisplayPanel.Width + 150 : DisplayPanel.Width - 150;
+            DisplayPanel.Location = (MenuListPanel.Width == 200) ? new Point(DisplayPanel.Location.X - 150, DisplayPanel.Location.Y) : new Point(DisplayPanel.Location.X + 150, DisplayPanel.Location.Y);
+           PanelManu.Width =  (MenuListPanel.Width == 200) ? 50 : 200;
+            MenuListPanel.Width = (MenuListPanel.Width == 200) ? 50 : 200;
             if (MenuListPanel.Width == 200)
             {
                 //showlist
@@ -185,6 +189,34 @@ namespace SP_Management
         {
             ClickData = (ClickData == "Shipping") ? "" : "Shipping";
             ShowSubMenu();
+        }
+
+        private void UserlistHrBtn_Click(object sender, EventArgs e)
+        {
+            OpenUserList();
+        }
+
+        private void MinimumBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void ExitBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void CreateProductMktBtn_Click(object sender, EventArgs e)
+        {
+            PagesManager.OpenPage("", DisplayPanel);
+        }
+        public void OpenNewUserPage()
+        {
+            PagesManager.OpenPage("AddUser", DisplayPanel);
+        }
+        public void OpenUserList()
+        {
+            PagesManager.OpenPage("Userlist", DisplayPanel);
         }
     }
 }

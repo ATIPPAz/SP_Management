@@ -36,9 +36,12 @@
     <Reference Include="BCrypt.Net, Version=0.1.4141.31969, Culture=neutral, PublicKeyToken=f3bc8f8c31beeb49, processorArchitecture=MSIL">
       <HintPath>..\packages\BCrypt.Net.0.1.0\lib\net35\BCrypt.Net.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,41 +51,71 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Commands\GetAll.cs" />
     <Compile Include="Classes\MiddleStore.cs" />
     <Compile Include="Classes\EnvVariable\Env.cs" />
+    <Compile Include="Classes\PagesManager.cs" />
     <Compile Include="Classes\Sql.cs" />
-    <Compile Include="Classes\SqlCommands\GetAll.cs" />
+    <Compile Include="Classes\Employee\Employees.cs" />
+    <Compile Include="Controls\Tables\UserListTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Tables\UserListTable.Designer.cs">
+      <DependentUpon>UserListTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ToastNoti\Toast.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Controls\ToastNoti\Toast.Designer.cs">
       <DependentUpon>Toast.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\LoginPage\Login.cs">
+    <Compile Include="Pages\HumanResourcePage\AddUserPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\HumanResourcePage\AddUserPage.Designer.cs">
+      <DependentUpon>AddUserPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\HumanResourcePage\UserlistPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\HumanResourcePage\UserlistPage.Designer.cs">
+      <DependentUpon>UserlistPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginForm\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pages\LoginPage\Login.Designer.cs">
+    <Compile Include="Forms\LoginForm\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Route.cs" />
-    <Compile Include="Pages\IndexPage\SPM.cs">
+    <Compile Include="Forms\IndexForm\SPM.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pages\IndexPage\SPM.Designer.cs">
+    <Compile Include="Forms\IndexForm\SPM.Designer.cs">
       <DependentUpon>SPM.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\Tables\UserListTable.resx">
+      <DependentUpon>UserListTable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ToastNoti\Toast.resx">
       <DependentUpon>Toast.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\LoginPage\Login.resx">
+    <EmbeddedResource Include="Pages\HumanResourcePage\AddUserPage.resx">
+      <DependentUpon>AddUserPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\HumanResourcePage\UserlistPage.resx">
+      <DependentUpon>UserlistPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoginForm\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\IndexPage\SPM.resx">
+    <EmbeddedResource Include="Forms\IndexForm\SPM.resx">
       <DependentUpon>SPM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -114,7 +147,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Classes\Sql\" />
-    <Folder Include="Pages\pages\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

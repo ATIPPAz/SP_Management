@@ -232,7 +232,6 @@ namespace SP_Management
                 try
                 {
                     string cmd = $"Select * From dbo.EmployeeAccounts e Where e.EmpUsername = '{UsernameText.Text}'";
-                    Sql.SqlConnectionOpen();
                     Sql.RunCommand(cmd);
                     Sql._adapter.SelectCommand = Sql._command;
                     DataTable emp = new DataTable();
