@@ -16,7 +16,7 @@ namespace SP_Management.Classes.Commands
             
             Sql.SqlConnectionOpen();
             //Load data Employee
-            string cmd = $"select top(17) * from dbo.Employees e order by e.EmpID desc";
+            string cmd = $"select * from dbo.Employees e order by e.EmpID desc";
             Sql.RunCommand(cmd);
             Sql._adapter.SelectCommand = Sql._command;
             EmplyeeData = new DataTable();

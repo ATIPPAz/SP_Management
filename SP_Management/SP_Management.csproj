@@ -68,11 +68,11 @@
     <Compile Include="Classes\Employee\Employees.cs" />
     <Compile Include="Controls\Tables\BodyTable.cs" />
     <Compile Include="Controls\Tables\HeaderTable.cs" />
-    <Compile Include="Controls\Tables\UserListTable.cs">
+    <Compile Include="Controls\Tables\TableExample.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Tables\UserListTable.Designer.cs">
-      <DependentUpon>UserListTable.cs</DependentUpon>
+    <Compile Include="Controls\Tables\TableExample.Designer.cs">
+      <DependentUpon>TableExample.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ToastNoti\Toast.cs">
       <SubType>Form</SubType>
@@ -113,8 +113,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Controls\Tables\UserListTable.resx">
-      <DependentUpon>UserListTable.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\Tables\TableExample.resx">
+      <DependentUpon>TableExample.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ToastNoti\Toast.resx">
       <DependentUpon>Toast.cs</DependentUpon>

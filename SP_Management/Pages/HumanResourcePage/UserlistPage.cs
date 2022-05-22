@@ -105,10 +105,9 @@ namespace SP_Management.Pages.HumanResourcePage
 
         private void ToPdfBtn_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("y.txt");
-           /* try
+            try
             {
-                *//* string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);*//*
+                /*string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);*/
                 string path = @"test.pdf";
                 ExportDataTableToPdf(getEmployees.EmplyeeData, path, "Employees List");
                 System.Diagnostics.Process.Start(path);
@@ -116,7 +115,7 @@ namespace SP_Management.Pages.HumanResourcePage
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error Message");
-            }*/
+            }
         }
 
         private void ExportDataTableToPdf(DataTable dtblTable, string strPdfPath, string strHeader)

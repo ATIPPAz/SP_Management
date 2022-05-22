@@ -1,6 +1,6 @@
 ﻿namespace SP_Management.Controls.Tables
 {
-    partial class UserListTable
+    partial class TableExample
     {
         /// <summary> 
         /// Required designer variable.

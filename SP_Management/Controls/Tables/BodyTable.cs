@@ -24,7 +24,7 @@ namespace SP_Management.Controls.Tables
             int btncount = img.Length;
             int idxpic = 0;
             Body = new TableLayoutPanel();
-            Body.Height = 40;
+            Body.Height = 30;
             Body.AutoSize = false;
             Body.RowCount = 1;
             Body.ColumnCount = Size.Length;
