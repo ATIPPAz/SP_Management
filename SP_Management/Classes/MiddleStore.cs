@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace SP_Management.Classes
 {
-    internal class MiddleStore
+    static class MiddleStore
     {
-        public static string EmpID = "";
+        public static string ConnectPath = @"Server=localhost\SQLSERVER;Database=ShopDB;User Id=user1;Password=mypass1;";
     }
 }

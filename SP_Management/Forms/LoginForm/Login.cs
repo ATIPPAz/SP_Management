@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SP_Management.Classes;
+using SP_Management.Classes.CRUD;
 using BCrypt.Net;
 
 namespace SP_Management
@@ -231,11 +232,9 @@ namespace SP_Management
             {
                 try
                 {
-                    string cmd = $"Select * From dbo.EmployeeAccounts e Where e.EmpUsername = '{UsernameText.Text}'";
-                    Sql.RunCommand(cmd);
-                    Sql._adapter.SelectCommand = Sql._command;
+                    GetOne getData = new GetOne();
                     DataTable emp = new DataTable();
-                    Sql._adapter.Fill(emp);
+                    emp = getData.GetEmployee(username:UsernameText.Text);
                     string password = "";
                     string EmpID = "";
                     foreach (DataRow row in emp.Rows)
@@ -248,8 +247,7 @@ namespace SP_Management
                         if (BCrypt.Net.BCrypt.Verify(PasswordText.Text, password))
                         {
                             Toast.Success("Login Success");
-                            Sql.destroyCmd();
-                            MiddleStore.EmpID = EmpID;
+                            Route.index.ReciptID(EmpID);
                             Route.OpenIndex();
                             Route.CloseLoginForm();
                         }

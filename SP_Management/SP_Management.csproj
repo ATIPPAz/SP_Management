@@ -61,11 +61,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Commands\GetAll.cs" />
+    <Compile Include="Classes\CRUD\Create.cs" />
+    <Compile Include="Classes\CRUD\Delete.cs" />
+    <Compile Include="Classes\CRUD\Get.cs" />
+    <Compile Include="Classes\CRUD\Update.cs" />
     <Compile Include="Classes\MiddleStore.cs" />
-    <Compile Include="Classes\EnvVariable\Env.cs" />
     <Compile Include="Classes\PagesManager.cs" />
-    <Compile Include="Classes\Sql.cs" />
-    <Compile Include="Classes\Employee\Employees.cs" />
+    <Compile Include="Classes\CRUD\Sql.cs" />
+    <Compile Include="Classes\Data\Employees.cs" />
     <Compile Include="Controls\Tables\BodyTable.cs" />
     <Compile Include="Controls\Tables\HeaderTable.cs" />
     <Compile Include="Controls\Tables\TableExample.cs">
@@ -166,8 +169,6 @@
     <Content Include="Resources\images\Success.png" />
     <Content Include="Resources\images\UserIcon.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Classes\Sql\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
