@@ -36,6 +36,12 @@
     <Reference Include="BCrypt.Net, Version=0.1.4141.31969, Culture=neutral, PublicKeyToken=f3bc8f8c31beeb49, processorArchitecture=MSIL">
       <HintPath>..\packages\BCrypt.Net.0.1.0\lib\net35\BCrypt.Net.dll</HintPath>
     </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -60,6 +66,8 @@
     <Compile Include="Classes\PagesManager.cs" />
     <Compile Include="Classes\Sql.cs" />
     <Compile Include="Classes\Employee\Employees.cs" />
+    <Compile Include="Controls\Tables\BodyTable.cs" />
+    <Compile Include="Controls\Tables\HeaderTable.cs" />
     <Compile Include="Controls\Tables\UserListTable.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -72,11 +80,11 @@
     <Compile Include="Controls\ToastNoti\Toast.Designer.cs">
       <DependentUpon>Toast.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\HumanResourcePage\AddUserPage.cs">
+    <Compile Include="Pages\HumanResourcePage\DialogUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Pages\HumanResourcePage\AddUserPage.Designer.cs">
-      <DependentUpon>AddUserPage.cs</DependentUpon>
+    <Compile Include="Pages\HumanResourcePage\DialogUser.Designer.cs">
+      <DependentUpon>DialogUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\HumanResourcePage\UserlistPage.cs">
       <SubType>UserControl</SubType>
@@ -97,6 +105,12 @@
     <Compile Include="Forms\IndexForm\SPM.Designer.cs">
       <DependentUpon>SPM.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PackingPage\OrderLists.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\PackingPage\OrderLists.Designer.cs">
+      <DependentUpon>OrderLists.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\Tables\UserListTable.resx">
@@ -105,8 +119,8 @@
     <EmbeddedResource Include="Controls\ToastNoti\Toast.resx">
       <DependentUpon>Toast.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\HumanResourcePage\AddUserPage.resx">
-      <DependentUpon>AddUserPage.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\HumanResourcePage\DialogUser.resx">
+      <DependentUpon>DialogUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\HumanResourcePage\UserlistPage.resx">
       <DependentUpon>UserlistPage.cs</DependentUpon>
@@ -117,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\IndexForm\SPM.resx">
       <DependentUpon>SPM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\PackingPage\OrderLists.resx">
+      <DependentUpon>OrderLists.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -147,6 +164,7 @@
     <Content Include="Resources\images\MarketingIcon.png" />
     <Content Include="Resources\images\PencillIcon.png" />
     <Content Include="Resources\images\Success.png" />
+    <Content Include="Resources\images\UserIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Classes\Sql\" />
