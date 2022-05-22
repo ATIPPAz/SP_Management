@@ -11,14 +11,14 @@ using SP_Management.Classes.Employee;
 using SP_Management.Classes;
 namespace SP_Management.Controls.Tables
 {
-    public partial class UserListTable : UserControl
+    public partial class TableExample : UserControl
     {
         Employees emp = null;
-        public UserListTable()
+        public TableExample()
         {
             InitializeComponent();
         }
-        public UserListTable(Employees emp)
+        public TableExample(Employees emp)
         {
             InitializeComponent();
             this.emp = emp;
