@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SP_Management.Classes;
-
+using SP_Management.Classes.Data.Employee;
+using SP_Management.Classes.CRUD;
 namespace SP_Management
 {
     public partial class SPM : Form
     {
         string ClickData = "";
+        string EmpID = "";
         public SPM()
         {
             InitializeComponent();
@@ -22,15 +24,23 @@ namespace SP_Management
             CloseAllSubMenu();
         }
 
-
+        public void ReciptID(string id)
+        {
+            EmpID = id;
+        }
        
         private void button4_Click(object sender, EventArgs e)
         {
             Application.Exit(); 
         }
-
-      
-
+        public void ExitApplication()
+        {
+            Application.Exit();
+        }
+        public void CloseDialog()
+        {
+            PagesManager.CloseDialog(DialogPanel);
+        }
         private void SPM_Load(object sender, EventArgs e)
         {
             if (Route.isStartUp)
@@ -38,14 +48,9 @@ namespace SP_Management
                 Route.isStartUp = false;
                 Route.index.Hide();
             }
-            Sql.SqlConnectionOpen();
-            //Load data Employee
-            string cmd = $"select * from dbo.Employees e Where e.EmpID = '{MiddleStore.EmpID}'";
-            Sql.RunCommand(cmd);
-            Sql._adapter.SelectCommand = Sql._command;
             DataTable EmplyeeData = new DataTable();
-            Sql._adapter.Fill(EmplyeeData);
-            Sql.destroyCmd();
+            GetOne getdata = new GetOne();
+            EmplyeeData = getdata.GetEmployee(EmpID);
             //fillter with rule employee
             LoadMenuListBtn();
         }
@@ -60,7 +65,6 @@ namespace SP_Management
         {
             Toast.Success("Logout Success");
             Route.CreateLoginPage(null);
-           // Route.CreateLoginPage(this);
         }
 
         void resizeMenuPanel()
@@ -208,15 +212,27 @@ namespace SP_Management
 
         private void CreateProductMktBtn_Click(object sender, EventArgs e)
         {
-            PagesManager.OpenPage("", DisplayPanel);
+            PagesManager.OpenPage("", DisplayPanel, true);
         }
         public void OpenNewUserPage()
         {
-            PagesManager.OpenPage("AddUser", DisplayPanel);
+            PagesManager.OpenDialog("AddUser", DialogPanel, false);
+            DialogPanel.BringToFront();
+        }
+        public void OpenEditUserPage(string id)
+        {
+            PagesManager.OpenDialog("EditUser",id, DialogPanel, false);
+            DialogPanel.BringToFront();
         }
         public void OpenUserList()
         {
-            PagesManager.OpenPage("Userlist", DisplayPanel);
+            PagesManager.OpenPage("Userlist", DisplayPanel, true);
+            DialogPanel.SendToBack();
+        }
+
+        private void OrderPkBtn_Click(object sender, EventArgs e)
+        {
+            PagesManager.OpenPage("OrderPk", DisplayPanel, true);
         }
     }
 }

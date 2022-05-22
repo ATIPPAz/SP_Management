@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SP_Management.Classes.Employee
+namespace SP_Management.Classes.Data.Employee
 {
     public class Employees
     {
