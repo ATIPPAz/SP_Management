@@ -22,7 +22,11 @@ namespace SP_Management.Controls.Tables
         {
             InitializeComponent();
             this.emp = emp;
-            Console.WriteLine(1);
+            foreach (ColumnStyle item in tableLayoutPanel1.ColumnStyles)
+            {
+                Console.WriteLine(item.SizeType + " : " + item.Width);
+            }
+            
         }
 
         private void UserListTable_Load(object sender, EventArgs e)
@@ -38,10 +42,36 @@ namespace SP_Management.Controls.Tables
                 txtEmpEmail.Text = emp.EmpEmail;
             }
         }
-
+        public string GetID()
+        {
+            return txtEmpID.Text;
+        }
+        public string GetFName()
+        {
+            return txtFName.Text;
+        }
+        public string GetLname()
+        {
+            return txtEmpLName.Text;
+        }
+        public string GetPhone()
+        {
+            return txtEmpPhone.Text;
+        }
+        public string GetDept()
+        {
+            return txtEmpDepartment.Text;
+        }
+        public string GetEmail()
+        {
+            return txtEmpEmail.Text;
+        }
+        public string GetPosition()
+        {
+            return txtEmpPosition.Text;
+        }
         private void EditBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("ดึงข้อมูล ID "+emp.EmpID);
             Route.index.OpenEditUserPage(emp.EmpID);
         }
 

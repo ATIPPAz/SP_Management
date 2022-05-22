@@ -31,6 +31,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.MenuListBtn = new System.Windows.Forms.Button();
             this.DisplayPanel = new System.Windows.Forms.Panel();
+            this.DialogPanel = new System.Windows.Forms.Panel();
             this.MenuListPanel = new System.Windows.Forms.Panel();
             this.OrdersSpBtn = new System.Windows.Forms.Button();
             this.ShippingBtn = new System.Windows.Forms.Button();
@@ -59,7 +60,6 @@
             this.ExitBtn = new System.Windows.Forms.Button();
             this.MinimumBtn = new System.Windows.Forms.Button();
             this.HeaderPanel = new System.Windows.Forms.Panel();
-            this.DialogPanel = new System.Windows.Forms.Panel();
             this.DisplayPanel.SuspendLayout();
             this.MenuListPanel.SuspendLayout();
             this.PanelManu.SuspendLayout();
@@ -100,12 +100,19 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DisplayPanel.BackColor = System.Drawing.SystemColors.Control;
-            this.DisplayPanel.Controls.Add(this.DialogPanel);
             this.DisplayPanel.Controls.Add(this.button4);
+            this.DisplayPanel.Controls.Add(this.DialogPanel);
             this.DisplayPanel.Location = new System.Drawing.Point(206, 56);
             this.DisplayPanel.Name = "DisplayPanel";
             this.DisplayPanel.Size = new System.Drawing.Size(1385, 838);
             this.DisplayPanel.TabIndex = 4;
+            // 
+            // DialogPanel
+            // 
+            this.DialogPanel.Location = new System.Drawing.Point(430, 13);
+            this.DialogPanel.Name = "DialogPanel";
+            this.DialogPanel.Size = new System.Drawing.Size(500, 800);
+            this.DialogPanel.TabIndex = 4;
             // 
             // MenuListPanel
             // 
@@ -322,6 +329,7 @@
             this.OrderPkBtn.Text = "Audit Order";
             this.OrderPkBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.OrderPkBtn.UseVisualStyleBackColor = false;
+            this.OrderPkBtn.Click += new System.EventHandler(this.OrderPkBtn_Click);
             // 
             // PackingBtn
             // 
@@ -521,20 +529,13 @@
             this.HeaderPanel.Size = new System.Drawing.Size(1920, 50);
             this.HeaderPanel.TabIndex = 4;
             // 
-            // DialogPanel
-            // 
-            this.DialogPanel.Location = new System.Drawing.Point(430, 13);
-            this.DialogPanel.Name = "DialogPanel";
-            this.DialogPanel.Size = new System.Drawing.Size(500, 800);
-            this.DialogPanel.TabIndex = 4;
-            // 
             // SPM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1600, 900);
-            this.Controls.Add(this.PanelManu);
             this.Controls.Add(this.DisplayPanel);
+            this.Controls.Add(this.PanelManu);
             this.Controls.Add(this.HeaderPanel);
             this.Font = new System.Drawing.Font("LuzSans-Book", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

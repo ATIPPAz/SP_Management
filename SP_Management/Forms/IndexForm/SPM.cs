@@ -32,7 +32,10 @@ namespace SP_Management
         {
             Application.Exit();
         }
-      
+        public void CloseDialog()
+        {
+            PagesManager.CloseDialog(DialogPanel);
+        }
         private void SPM_Load(object sender, EventArgs e)
         {
             if (Route.isStartUp)
@@ -214,18 +217,23 @@ namespace SP_Management
         }
         public void OpenNewUserPage()
         {
-            PagesManager.OpenPage("AddUser", DialogPanel, false);
+            PagesManager.OpenDialog("AddUser", DialogPanel, false);
             DialogPanel.BringToFront();
         }
         public void OpenEditUserPage(string id)
         {
-            PagesManager.OpenPage("EditUser",id, DialogPanel, false);
+            PagesManager.OpenDialog("EditUser",id, DialogPanel, false);
             DialogPanel.BringToFront();
         }
         public void OpenUserList()
         {
             PagesManager.OpenPage("Userlist", DisplayPanel, true);
             DialogPanel.SendToBack();
+        }
+
+        private void OrderPkBtn_Click(object sender, EventArgs e)
+        {
+            PagesManager.OpenPage("OrderPk", DisplayPanel, true);
         }
     }
 }

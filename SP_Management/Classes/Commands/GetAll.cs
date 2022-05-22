@@ -10,16 +10,19 @@ namespace SP_Management.Classes.Commands
     public class GetAll
     {
         public Employees[] Employee;
+        public  DataTable EmplyeeData;
         public Employees[] GetEmployee()
         {
             
             Sql.SqlConnectionOpen();
             //Load data Employee
-            string cmd = $"select * from dbo.Employees ";
+            string cmd = $"select top(17) * from dbo.Employees e order by e.EmpID desc";
             Sql.RunCommand(cmd);
             Sql._adapter.SelectCommand = Sql._command;
-            DataTable EmplyeeData = new DataTable();
+            EmplyeeData = new DataTable();
             Sql._adapter.Fill(EmplyeeData);
+            EmplyeeData.DefaultView.Sort = "EmpID ASC";
+
             Sql.destroyCmd();
             Employees[] userlist = new Employees[EmplyeeData.Rows.Count];
             Employee = new Employees[EmplyeeData.Rows.Count];
@@ -34,6 +37,7 @@ namespace SP_Management.Classes.Commands
                     Employee[idx].EmpDepartment = item["DeptID"].ToString();
                     Employee[idx].EmpPosition = item["PositionID"].ToString();
                     Employee[idx].EmpEmail = item["EmpEmail"].ToString();
+                    Console.WriteLine(Employee[idx].EmpID);
                     /*userlist[idx] = new Employees();
                     userlist[idx].EmpID = item["EmpID"].ToString();
                     userlist[idx].EmpFName = item["EmpFName"].ToString();
@@ -45,7 +49,8 @@ namespace SP_Management.Classes.Commands
                     Console.WriteLine(item["EmpID"].ToString());*/
                 idx += 1;
                 }
-            
+        /*    var data = Employee.OrderBy(e => e.EmpID);
+            Employee = data.ToArray();*/
             return Employee;
 
             /*return userlist;*/
