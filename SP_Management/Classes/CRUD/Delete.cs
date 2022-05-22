@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SP_Management.Class.EnvVariable
+namespace SP_Management.Classes.CRUD
 {
-    public static class Env
+    internal class Delete
     {
-        public static string ConnectionString = "";
     }
 }

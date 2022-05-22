@@ -6,26 +6,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SP_Management.Classes.Commands;
 using SP_Management.Controls.Tables;
-using SP_Management.Classes.Employee;
+using SP_Management.Classes.CRUD;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
 using System.IO;
 using System.Drawing;
+using SP_Management.Classes.Data.Employee;
 
 namespace SP_Management.Pages.HumanResourcePage
 {
     public partial class UserlistPage : UserControl
     {
-        GetAll getEmployees;
+        DataTable EmpDataTable;
         Employees[] SourceEmpData;
         Employees[] EmpData;
         public UserlistPage()
         {
             InitializeComponent();
-            getEmployees = new GetAll();
-            SourceEmpData = getEmployees.GetEmployee();
+            GetAll getdate = new GetAll();
+            EmpDataTable = getdate.GetEmployee();
+            SourceEmpData = new Employees[EmpDataTable.Rows.Count];
+        int idx = 0;
+        foreach (DataRow item in EmpDataTable.Rows)
+        {
+                SourceEmpData[idx] = new Employees();
+                SourceEmpData[idx].EmpID = item["EmpID"].ToString();
+                SourceEmpData[idx].EmpFName = item["EmpFName"].ToString();
+                SourceEmpData[idx].EmpLName = item["EmpLName"].ToString();
+                SourceEmpData[idx].EmpPhone = item["EmpPhone"].ToString();
+                SourceEmpData[idx].EmpDepartment = item["DeptID"].ToString();
+                SourceEmpData[idx].EmpPosition = item["PositionID"].ToString();
+                SourceEmpData[idx].EmpEmail = item["EmpEmail"].ToString();
+            idx += 1;
+        }
             EmpData = SourceEmpData;
             HeaderTable header = new HeaderTable();
             header.CreateHeader(
@@ -33,25 +47,6 @@ namespace SP_Management.Pages.HumanResourcePage
                 ,new string[]{ "ID","FirstName","LastName","Position","Department","TelPhone","Email","Action"},
                 HeaderPanel);
             AddTable();
-            /* Control[] control =
-             {
-                 new Label(){ Text = "ID",Dock = DockStyle.Fill,BackColor=Color.FromArgb(62, 148, 239)},
-                 new Label(){ Text = "FirstName",Dock = DockStyle.Fill,BackColor=Color.FromArgb(62, 148, 239)},
-                 new Label(){ Text = "LastName",Dock = DockStyle.Fill,BackColor=Color.FromArgb(62, 148, 239)},
-                 new Label(){ Text = "TelePhone",Dock = DockStyle.Fill,BackColor=Color.FromArgb(62, 148, 239)},
-                 new Label(){ Text = "Department",Dock = DockStyle.Fill,BackColor=Color.FromArgb(62, 148, 239)},
-                 new Label(){ Text = "Position",Dock = DockStyle.Fill,BackColor=Color.FromArgb(62, 148, 239)},
-                 new Label(){ Text = "Email",Dock = DockStyle.Fill,BackColor=Color.FromArgb(62, 148, 239)},
-                 new PictureBox(){ SizeMode = PictureBoxSizeMode.Zoom,Dock = DockStyle.Fill },
-                 new PictureBox(){ SizeMode = PictureBoxSizeMode.Zoom,Dock = DockStyle.Fill },
-             };
-             int[] size =
-             {
-                 0.1,
-             };
-             HearderTable hearderTable = new HearderTable(size, control);
-             hearderTable.Dock = DockStyle.Top;
-             TablePanel.Controls.Add(hearderTable);*/
         }
 
         void AddTable(string sort = "asc")
@@ -65,6 +60,7 @@ namespace SP_Management.Pages.HumanResourcePage
             {
                 EmpData = EmpData.OrderByDescending(e => e.EmpID).ToArray(); ;
             }
+            
             foreach (var Emp in EmpData)
             {
                 /*UserListTable userListTable = new UserListTable(Emp);*/
@@ -72,13 +68,15 @@ namespace SP_Management.Pages.HumanResourcePage
                 bodyTable.CreateBody(
                     new float[] { 
                         5.83F, 16.21F, 16.21F, 13.41F, 13.41F, 13.41F, 13.41F, 4.05F,4.05F 
-                    },new string[] {
-                    Emp.EmpID,Emp.EmpFName,Emp.EmpLName,Emp.EmpPosition,Emp.EmpDepartment,Emp.EmpPhone,Emp.EmpEmail
-                    },BodyPanel,new System.Drawing.Image[]{Properties.Resources.PencillIcon,Properties.Resources.DeleteIcon});
-               /* userListTable.Dock = DockStyle.Top;
-                userListTable.Tag = Emp.EmpID;
-                userListTable.BackColor = Color.White;
-                userListTable.ForeColor = Color.Black;*/
+                    },
+                    new string[] {
+                        Emp.EmpID,Emp.EmpFName,Emp.EmpLName,Emp.EmpPosition,Emp.EmpDepartment,Emp.EmpPhone,Emp.EmpEmail
+                    },
+                    BodyPanel,
+                    new System.Drawing.Image[]{Properties.Resources.PencillIcon,Properties.Resources.DeleteIcon}
+                );
+                bodyTable.EditBtn.Click += new EventHandler((object o, EventArgs e) => Route.index.OpenEditUserPage(Emp.EmpID));
+                bodyTable.DeleteBtn.Click += new EventHandler((object o, EventArgs e) => MessageBox.Show(Emp.EmpID));
                 BodyPanel.Controls.Add(bodyTable.Body);
             }
         }
@@ -109,7 +107,7 @@ namespace SP_Management.Pages.HumanResourcePage
             {
                 /*string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);*/
                 string path = @"test.pdf";
-                ExportDataTableToPdf(getEmployees.EmplyeeData, path, "Employees List");
+                ExportDataTableToPdf(EmpDataTable, path, "Employees List");
                 System.Diagnostics.Process.Start(path);
             }
             catch (Exception ex)

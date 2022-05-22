@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -38,7 +38,7 @@ namespace SP_Management.Classes.Commands
                     Employee[idx].EmpPosition = item["PositionID"].ToString();
                     Employee[idx].EmpEmail = item["EmpEmail"].ToString();
                     Console.WriteLine(Employee[idx].EmpID);
-                    /*userlist[idx] = new Employees();
+                    *//*userlist[idx] = new Employees();
                     userlist[idx].EmpID = item["EmpID"].ToString();
                     userlist[idx].EmpFName = item["EmpFName"].ToString();
                     userlist[idx].EmpLName = item["EmpLName"].ToString();
@@ -46,14 +46,15 @@ namespace SP_Management.Classes.Commands
                     userlist[idx].EmpDepartment = item["DeptID"].ToString();
                     userlist[idx].EmpPosition = item["PositionID"].ToString();
                     userlist[idx].EmpEmail = item["EmpEmail"].ToString();
-                    Console.WriteLine(item["EmpID"].ToString());*/
+                    Console.WriteLine(item["EmpID"].ToString());*//*
                 idx += 1;
                 }
-        /*    var data = Employee.OrderBy(e => e.EmpID);
-            Employee = data.ToArray();*/
+        *//*    var data = Employee.OrderBy(e => e.EmpID);
+            Employee = data.ToArray();*//*
             return Employee;
 
-            /*return userlist;*/
+            *//*return userlist;*//*
         }
     }
 }
+*/

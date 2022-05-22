@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SP_Management.Classes.Employee;
+using SP_Management.Classes.Data.Employee;
 using SP_Management.Classes;
 namespace SP_Management.Controls.Tables
 {
