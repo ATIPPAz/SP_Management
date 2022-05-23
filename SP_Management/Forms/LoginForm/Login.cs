@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SP_Management.Classes;
-using SP_Management.Classes.CRUD.Employees;
 using BCrypt.Net;
+using SP_Management.Others;
+using SP_Management.SqlActions;
 
 namespace SP_Management
 {
@@ -232,9 +232,9 @@ namespace SP_Management
             {
                 try
                 {
-                    GetOne getData = new GetOne();
+                    var getData = new GetOne();
                     DataTable emp = new DataTable();
-                    emp = getData.GetEmployee(username:UsernameText.Text);
+                    emp = getData.GetData(Table:new string[] { "EmployeeAccounts" },ColumnSelect:"EmpUsername",IDSelect:UsernameText.Text,CallTable:null);
                     string rule = "";
                     string password = "";
                     string EmpID = "";

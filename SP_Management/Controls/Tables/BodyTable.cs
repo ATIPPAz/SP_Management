@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SP_Management.Classes.Data;
+
 namespace SP_Management.Controls.Tables
 {
     public class BodyTable

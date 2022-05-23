@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SP_Management.Classes.Data.Employee
+namespace SP_Management.Models.Employee
 {
-    public class Employees
+    public class Employee
     {
         public string EmpID { get; set; }
         public string EmpUsername { get; set; }
