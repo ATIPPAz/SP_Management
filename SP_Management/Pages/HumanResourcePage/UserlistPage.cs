@@ -7,17 +7,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SP_Management.Controls.Tables;
-using SP_Management.Classes.CRUD;
+using SP_Management.Classes.CRUD.Employees;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
 using System.IO;
 using System.Drawing;
+
 using SP_Management.Classes.Data.Employee;
+using System.Windows.Controls;
+using System.Web;
+using Font = iTextSharp.text.Font;
 
 namespace SP_Management.Pages.HumanResourcePage
 {
-    public partial class UserlistPage : UserControl
+    public partial class UserlistPage : System.Windows.Forms.UserControl
     {
+        DataTable SourceEmpDataTable;
         DataTable EmpDataTable;
         Employees[] SourceEmpData;
         Employees[] EmpData;
@@ -25,11 +30,13 @@ namespace SP_Management.Pages.HumanResourcePage
         {
             InitializeComponent();
             GetAll getdate = new GetAll();
-            EmpDataTable = getdate.GetEmployee();
+            SourceEmpDataTable = getdate.GetEmployee();
+            EmpDataTable = SourceEmpDataTable.Copy();
+            Console.WriteLine(EmpDataTable.Rows.Count);
             SourceEmpData = new Employees[EmpDataTable.Rows.Count];
-        int idx = 0;
-        foreach (DataRow item in EmpDataTable.Rows)
-        {
+            int idx = 0;
+            foreach (DataRow item in EmpDataTable.Rows)
+            {
                 SourceEmpData[idx] = new Employees();
                 SourceEmpData[idx].EmpID = item["EmpID"].ToString();
                 SourceEmpData[idx].EmpFName = item["EmpFName"].ToString();
@@ -38,13 +45,13 @@ namespace SP_Management.Pages.HumanResourcePage
                 SourceEmpData[idx].EmpDepartment = item["DeptID"].ToString();
                 SourceEmpData[idx].EmpPosition = item["PositionID"].ToString();
                 SourceEmpData[idx].EmpEmail = item["EmpEmail"].ToString();
-            idx += 1;
-        }
+                idx += 1;
+            }
             EmpData = SourceEmpData;
             HeaderTable header = new HeaderTable();
             header.CreateHeader(
-                new float[]{5.83F,16.21F, 16.21F ,13.41F, 13.41F, 13.41F, 13.41F, 8.11F }
-                ,new string[]{ "ID","FirstName","LastName","Position","Department","TelPhone","Email","Action"},
+                new float[] { 5.83F, 16.21F, 16.21F, 13.41F, 13.41F, 13.41F, 13.41F, 8.11F }
+                , new string[] { "ID", "FirstName", "LastName", "Position", "Department", "TelPhone", "Email", "Action" },
                 HeaderPanel);
             AddTable();
         }
@@ -52,28 +59,28 @@ namespace SP_Management.Pages.HumanResourcePage
         void AddTable(string sort = "asc")
         {
             BodyPanel.Controls.Clear();
-            if(sort == "asc")
+            if (sort == "asc")
             {
-                EmpData = EmpData.OrderBy(e=>e.EmpID).ToArray();
+                EmpData = EmpData.OrderBy(e => e.EmpID).ToArray();
             }
-            else if(sort == "desc")
+            else if (sort == "desc")
             {
                 EmpData = EmpData.OrderByDescending(e => e.EmpID).ToArray(); ;
             }
-            
+
             foreach (var Emp in EmpData)
             {
                 /*UserListTable userListTable = new UserListTable(Emp);*/
                 BodyTable bodyTable = new BodyTable();
                 bodyTable.CreateBody(
-                    new float[] { 
-                        5.83F, 16.21F, 16.21F, 13.41F, 13.41F, 13.41F, 13.41F, 4.05F,4.05F 
+                    new float[] {
+                        5.83F, 16.21F, 16.21F, 13.41F, 13.41F, 13.41F, 13.41F, 4.05F,4.05F
                     },
                     new string[] {
                         Emp.EmpID,Emp.EmpFName,Emp.EmpLName,Emp.EmpPosition,Emp.EmpDepartment,Emp.EmpPhone,Emp.EmpEmail
                     },
                     BodyPanel,
-                    new System.Drawing.Image[]{Properties.Resources.PencillIcon,Properties.Resources.DeleteIcon}
+                    new System.Drawing.Image[] { Properties.Resources.PencillIcon, Properties.Resources.DeleteIcon }
                 );
                 bodyTable.EditBtn.Click += new EventHandler((object o, EventArgs e) => Route.index.OpenEditUserPage(Emp.EmpID));
                 bodyTable.DeleteBtn.Click += new EventHandler((object o, EventArgs e) => MessageBox.Show(Emp.EmpID));
@@ -82,18 +89,19 @@ namespace SP_Management.Pages.HumanResourcePage
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            Route.index.OpenNewUserPage();   
+            Route.index.OpenNewUserPage();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            EmpData = !(SearchBar.Text == "")? SourceEmpData.Where(emps => emps.EmpFName.Contains(SearchBar.Text)).ToArray() : SourceEmpData;
-            AddTable("desc");
+
+
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AddTable("desc");
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -106,9 +114,18 @@ namespace SP_Management.Pages.HumanResourcePage
             try
             {
                 /*string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);*/
-                string path = @"test.pdf";
-                ExportDataTableToPdf(EmpDataTable, path, "Employees List");
-                System.Diagnostics.Process.Start(path);
+                using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF|*.pdf" })
+                {
+
+                    /*  string path = @"test.pdf";*/
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        ExportFromGridView(EmpDataTable, sfd.FileName, "Employees List");
+                        System.Diagnostics.Process.Start(sfd.FileName);
+                    }
+
+                }
+
             }
             catch (Exception ex)
             {
@@ -125,7 +142,9 @@ namespace SP_Management.Pages.HumanResourcePage
             document.Open();
 
             //Report Header
-            BaseFont bfntHead = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+            var cvt = new FontConverter();
+            string s = cvt.ConvertToString(new System.Drawing.Font("Nirmala UI", 14.25F, FontStyle.Regular));
+            BaseFont bfntHead = BaseFont.CreateFont(HttpContext.Current.Server.MapPath("~/Fonts/ANGSA_0.TTF"), BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
             iTextSharp.text.Font fntHead = new iTextSharp.text.Font(bfntHead, 16, 1, BaseColor.GRAY);
             Paragraph prgHeading = new Paragraph();
             prgHeading.Alignment = Element.ALIGN_CENTER;
@@ -173,6 +192,111 @@ namespace SP_Management.Pages.HumanResourcePage
             document.Close();
             writer.Close();
             fs.Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+        public static void ExportFromGridView(DataTable gvControl, string strPdfPath, string strHeader)
+        {
+            /*System.IO.FileStream fs = new FileStream(strPdfPath, FileMode.Create, FileAccess.Write, FileShare.None);
+            Document document = new Document();
+            document.SetPageSize(iTextSharp.text.PageSize.A4);
+            PdfWriter writer = PdfWriter.GetInstance(document, fs);
+            document.Open();*/
+            // สร้าง BaseFont 
+            BaseFont bf = BaseFont.CreateFont(HttpContext.Current.Server.MapPath("~/THSarabun.ttf"), BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+            // กำหนดขนาดของ Pdf
+            Document pdfDoc = new Document(PageSize.A4, 10, 10, 10, 10);
+
+            try
+            {
+                // สร้าง instance ของ PdfWriter
+                PdfWriter.GetInstance(pdfDoc, System.Web.HttpContext.Current.Response.OutputStream);
+                pdfDoc.Open();
+
+                // สร้าง Font จาก BaseFont 
+                Font fnt = new Font(bf, 11);
+
+                // สร้าง PdfTable จาก GridView Control
+                PdfPTable PdfTable = new PdfPTable(gvControl.Columns.Count);
+                PdfPCell PdfPCell = null;
+
+                // Write Header ที่ PdfCell ใน PdfTable
+                for (int i = 0; i < gvControl.Columns.Count; i++)
+                {
+                    PdfPCell cell = new PdfPCell();
+                    cell.BackgroundColor = BaseColor.GRAY;
+                    cell.AddElement(new Chunk(gvControl.Columns[i].ColumnName.ToUpper(), fnt));
+                    PdfTable.AddCell(cell);
+                }
+
+                // Write Data ที่ PdfCell ใน PdfTable
+                for (int i = 0; i < gvControl.Rows.Count; i++)
+                {
+                    for (int j = 0; j < gvControl.Columns.Count; j++)
+                    {
+                        PdfPCell = new PdfPCell(new Phrase(new Chunk(gvControl.Rows[i][j].ToString(), fnt)));
+                        PdfTable.AddCell(PdfPCell);
+                    }
+                }
+
+                // Add PdfTable ลง pdfDoc
+                pdfDoc.Add(PdfTable);
+                // Close document
+                pdfDoc.Close();
+                // กำหนด ContentType เป็น application/pdf เพื่อ Response เป็น Pdf
+                HttpContext.Current.Response.ContentType = "application/pdf";
+                // กำหนดชื่อไฟล์ที่ต้องการ Export
+                HttpContext.Current.Response.AddHeader("content-disposition", "attachment; filename=" + DateTime.Now.ToString("yyyyMMdd") + ".pdf");
+                // Export Pdf
+                System.Web.HttpContext.Current.Response.Write(pdfDoc);
+
+                HttpContext.Current.Response.Flush();
+                HttpContext.Current.Response.End();
+
+            }
+            catch (Exception ex)
+            {
+                HttpContext.Current.Response.Write(ex.ToString());
+            }
+        }
+
+        private void SearchBtn_Click(object sender, EventArgs e)
+        {
+            EmpData = !(SearchBar.Text == "") ? SourceEmpData.Where(emps => emps.EmpFName.Contains(SearchBar.Text)).ToArray() : SourceEmpData;
+            /* DataView dv = new DataView(SourceEmpDataTable);
+             dv.RowFilter = $"EmpFName = {SearchBar.Text}"; // query example = "id = 10"
+             EmpDataTable = dv.ToTable();*/
+            EmpDataTable.Rows.Clear();
+            DataRow[] dr = new DataRow[EmpData.Length];
+            int idx = 0;
+            foreach (DataRow data in SourceEmpDataTable.Rows)
+            {
+                Console.WriteLine(data["EmpFName"]);
+                if (data["EmpFName"].ToString().Contains(SearchBar.Text))
+                {
+                    EmpDataTable.Rows.Add(data.ItemArray);
+                    dr[idx] = data;
+                    idx++;
+                }
+            }
+
+
+            //EmpDataTable.Rows.Add(SourceEmpDataTable.Rows.Contains(SearchBar.Text));
+            /*EmpDataTable = SourceEmpDataTable.Select("EmpID Like '%" + SearchBar.Text + "%'").CopyToDataTable();*/
+            AddTable("desc");
+        }
+
+        private void DescBtn_Click(object sender, EventArgs e)
+        {
+            AddTable("desc");
+        }
+
+        private void AscBtn_Click(object sender, EventArgs e)
+        {
+            AddTable("asc");
         }
     }
 }

@@ -175,6 +175,7 @@
             // 
             // DateHired
             // 
+            this.DateHired.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DateHired.Location = new System.Drawing.Point(335, 531);
             this.DateHired.Name = "DateHired";
             this.DateHired.Size = new System.Drawing.Size(147, 33);
@@ -182,6 +183,7 @@
             // 
             // BirthDate
             // 
+            this.BirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.BirthDate.Location = new System.Drawing.Point(335, 387);
             this.BirthDate.Name = "BirthDate";
             this.BirthDate.Size = new System.Drawing.Size(147, 33);

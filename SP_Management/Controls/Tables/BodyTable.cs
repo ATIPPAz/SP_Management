@@ -25,6 +25,7 @@ namespace SP_Management.Controls.Tables
             int idxpic = 0;
             Body = new TableLayoutPanel();
             Body.Height = 30;
+            Body.CellBorderStyle = TableLayoutPanelCellBorderStyle.Outset;
             Body.AutoSize = false;
             Body.RowCount = 1;
             Body.ColumnCount = Size.Length;

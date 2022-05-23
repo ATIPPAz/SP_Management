@@ -129,7 +129,7 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
             this.tableLayoutPanel1.ColumnCount = 9;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.821364F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.18667F));
@@ -182,11 +182,11 @@
             this.DeleteBtn.TabStop = false;
             this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
-            // UserListTable
+            // TableExample
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "UserListTable";
+            this.Name = "TableExample";
             this.Size = new System.Drawing.Size(1200, 40);
             this.Load += new System.EventHandler(this.UserListTable_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

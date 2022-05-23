@@ -73,6 +73,16 @@ namespace SP_Management.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DownArrow {
+            get {
+                object obj = ResourceManager.GetObject("DownArrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MarketingIcon {
             get {
                 object obj = ResourceManager.GetObject("MarketingIcon", resourceCulture);
@@ -93,9 +103,29 @@ namespace SP_Management.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SearchIcon {
+            get {
+                object obj = ResourceManager.GetObject("SearchIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Success {
             get {
                 object obj = ResourceManager.GetObject("Success", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UpArrowIcon {
+            get {
+                object obj = ResourceManager.GetObject("UpArrowIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

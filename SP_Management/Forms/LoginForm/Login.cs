@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SP_Management.Classes;
-using SP_Management.Classes.CRUD;
+using SP_Management.Classes.CRUD.Employees;
 using BCrypt.Net;
 
 namespace SP_Management
@@ -235,18 +235,29 @@ namespace SP_Management
                     GetOne getData = new GetOne();
                     DataTable emp = new DataTable();
                     emp = getData.GetEmployee(username:UsernameText.Text);
+                    string rule = "";
                     string password = "";
                     string EmpID = "";
                     foreach (DataRow row in emp.Rows)
-                    { 
+                    {
+                       /* MiddleStore.EmpRule = row["DeptID"].ToString();*/
+                        password = row["EmpPassword"].ToString();
+                        EmpID = row["EmpID"].ToString();
+                       /* rule = row["DeptName"].ToString();*/
+                    }
+                    /*GetAll getDatas = new GetAll();
+                    foreach (DataRow row in emp.Rows)
+                    {
+                        MiddleStore.EmpRule = row["DeptID"].ToString();
                         password = row["EmpPassword"].ToString();
                         EmpID = row["EmpID"].ToString();
                     }
+                    emp = getDatas.GetFullEmployee(ID: EmpID);*/
                     if (!string.IsNullOrEmpty(password))
                     {
                         if (BCrypt.Net.BCrypt.Verify(PasswordText.Text, password))
                         {
-                            Toast.Success("Login Success");
+                            Toast.Success("Login Success\n"+ rule);
                             Route.index.ReciptID(EmpID);
                             Route.OpenIndex();
                             Route.CloseLoginForm();
