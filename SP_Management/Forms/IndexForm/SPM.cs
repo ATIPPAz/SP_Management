@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SP_Management.Classes;
-using SP_Management.Classes.Data.Employee;
-using SP_Management.Classes.CRUD;
+using SP_Management.Others;
+using SP_Management.SqlActions;
+
 namespace SP_Management
 {
     public partial class SPM : Form
@@ -49,8 +49,8 @@ namespace SP_Management
                 Route.index.Hide();
             }
             DataTable EmplyeeData = new DataTable();
-            GetOne getdata = new GetOne();
-            EmplyeeData = getdata.GetEmployee(EmpID);
+            var getdata = new GetOne();
+            EmplyeeData = getdata.GetData(ColumnSelect:"EmpUsername",Table: new string[] { "Employees", "EmployeeAccounts" }, CallTable: new string[] { "e,ea" }, IDSelect: EmpID,JoinColumn:new string[] {"EmpID,EmpID"});
             //fillter with rule employee
             LoadMenuListBtn();
         }

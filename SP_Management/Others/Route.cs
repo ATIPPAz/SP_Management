@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SP_Management
+namespace SP_Management.Others
 {
     public static class Route
     {

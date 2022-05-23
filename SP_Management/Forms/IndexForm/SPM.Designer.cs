@@ -153,7 +153,7 @@
             this.OrdersSpBtn.Name = "OrdersSpBtn";
             this.OrdersSpBtn.Size = new System.Drawing.Size(200, 35);
             this.OrdersSpBtn.TabIndex = 20;
-            this.OrdersSpBtn.Text = "Audit Orders";
+            this.OrdersSpBtn.Text = "OrdersList";
             this.OrdersSpBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.OrdersSpBtn.UseVisualStyleBackColor = false;
             // 
@@ -216,7 +216,7 @@
             this.ExpensesFnBtn.Name = "ExpensesFnBtn";
             this.ExpensesFnBtn.Size = new System.Drawing.Size(200, 35);
             this.ExpensesFnBtn.TabIndex = 13;
-            this.ExpensesFnBtn.Text = "Audit Expenses";
+            this.ExpensesFnBtn.Text = "ExpensesList";
             this.ExpensesFnBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ExpensesFnBtn.UseVisualStyleBackColor = false;
             // 
@@ -232,7 +232,7 @@
             this.RevenueFnBtn.Name = "RevenueFnBtn";
             this.RevenueFnBtn.Size = new System.Drawing.Size(200, 35);
             this.RevenueFnBtn.TabIndex = 14;
-            this.RevenueFnBtn.Text = "Audit Revenue";
+            this.RevenueFnBtn.Text = "RevenueList";
             this.RevenueFnBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RevenueFnBtn.UseVisualStyleBackColor = false;
             // 
@@ -263,7 +263,7 @@
             this.PurchasePcBtn.Name = "PurchasePcBtn";
             this.PurchasePcBtn.Size = new System.Drawing.Size(200, 35);
             this.PurchasePcBtn.TabIndex = 10;
-            this.PurchasePcBtn.Text = "Audit Purchase invoice";
+            this.PurchasePcBtn.Text = "PurchaseList";
             this.PurchasePcBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.PurchasePcBtn.UseVisualStyleBackColor = false;
             // 
@@ -279,7 +279,7 @@
             this.ReceiptionPcBtn.Name = "ReceiptionPcBtn";
             this.ReceiptionPcBtn.Size = new System.Drawing.Size(200, 35);
             this.ReceiptionPcBtn.TabIndex = 11;
-            this.ReceiptionPcBtn.Text = "Create Receiption";
+            this.ReceiptionPcBtn.Text = "ReceiptionList";
             this.ReceiptionPcBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ReceiptionPcBtn.UseVisualStyleBackColor = false;
             // 
@@ -310,7 +310,7 @@
             this.RequisitionPkBtn.Name = "RequisitionPkBtn";
             this.RequisitionPkBtn.Size = new System.Drawing.Size(200, 35);
             this.RequisitionPkBtn.TabIndex = 7;
-            this.RequisitionPkBtn.Text = "Create Requisition";
+            this.RequisitionPkBtn.Text = "RequisitionList";
             this.RequisitionPkBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RequisitionPkBtn.UseVisualStyleBackColor = false;
             // 
@@ -326,7 +326,7 @@
             this.OrderPkBtn.Name = "OrderPkBtn";
             this.OrderPkBtn.Size = new System.Drawing.Size(200, 35);
             this.OrderPkBtn.TabIndex = 8;
-            this.OrderPkBtn.Text = "Audit Order";
+            this.OrderPkBtn.Text = "OrderList";
             this.OrderPkBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.OrderPkBtn.UseVisualStyleBackColor = false;
             this.OrderPkBtn.Click += new System.EventHandler(this.OrderPkBtn_Click);
@@ -358,7 +358,7 @@
             this.ReceiptionWhBtn.Name = "ReceiptionWhBtn";
             this.ReceiptionWhBtn.Size = new System.Drawing.Size(200, 35);
             this.ReceiptionWhBtn.TabIndex = 4;
-            this.ReceiptionWhBtn.Text = "Audit Receiption";
+            this.ReceiptionWhBtn.Text = "ReceiptionList";
             this.ReceiptionWhBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ReceiptionWhBtn.UseVisualStyleBackColor = false;
             // 
@@ -374,7 +374,7 @@
             this.RequisitionWhBtn.Name = "RequisitionWhBtn";
             this.RequisitionWhBtn.Size = new System.Drawing.Size(200, 35);
             this.RequisitionWhBtn.TabIndex = 5;
-            this.RequisitionWhBtn.Text = "Audit Requisition";
+            this.RequisitionWhBtn.Text = "RequisitionList";
             this.RequisitionWhBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RequisitionWhBtn.UseVisualStyleBackColor = false;
             // 
@@ -405,7 +405,7 @@
             this.CreatePurchaseMktBtn.Name = "CreatePurchaseMktBtn";
             this.CreatePurchaseMktBtn.Size = new System.Drawing.Size(200, 35);
             this.CreatePurchaseMktBtn.TabIndex = 1;
-            this.CreatePurchaseMktBtn.Text = "CreatePurchase";
+            this.CreatePurchaseMktBtn.Text = "PurchaseList";
             this.CreatePurchaseMktBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CreatePurchaseMktBtn.UseVisualStyleBackColor = false;
             // 
@@ -421,7 +421,7 @@
             this.CreateProductMktBtn.Name = "CreateProductMktBtn";
             this.CreateProductMktBtn.Size = new System.Drawing.Size(200, 35);
             this.CreateProductMktBtn.TabIndex = 1;
-            this.CreateProductMktBtn.Text = "CreateProduct";
+            this.CreateProductMktBtn.Text = "ProductList";
             this.CreateProductMktBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CreateProductMktBtn.UseVisualStyleBackColor = false;
             this.CreateProductMktBtn.Click += new System.EventHandler(this.CreateProductMktBtn_Click);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SP_Management.Pages.HumanResourcePage;
 using SP_Management.Pages.PackingPage;
-namespace SP_Management.Classes
+namespace SP_Management.Others
 {
     public class PagesManager
     {
@@ -75,7 +75,9 @@ namespace SP_Management.Classes
                 panel.Controls.Add(Dialog);
             }
         }
-
+        public void refrashUserlist() {
+          
+        }
         public static void CloseDialog(Panel panel)
         {
             if (page != null)
