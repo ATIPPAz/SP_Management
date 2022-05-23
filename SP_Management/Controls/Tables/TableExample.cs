@@ -7,18 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SP_Management.Classes.Data.Employee;
-using SP_Management.Classes;
+using SP_Management.Others;
+using SP_Management.Models.Employee;
+
 namespace SP_Management.Controls.Tables
 {
     public partial class TableExample : UserControl
     {
-        Employees emp = null;
+        Employee emp = null;
         public TableExample()
         {
             InitializeComponent();
         }
-        public TableExample(Employees emp)
+        public TableExample(Employee emp)
         {
             InitializeComponent();
             this.emp = emp;

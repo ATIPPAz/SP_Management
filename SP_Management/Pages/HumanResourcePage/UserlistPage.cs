@@ -7,16 +7,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SP_Management.Controls.Tables;
-using SP_Management.Classes.CRUD.Employees;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
 using System.IO;
 using System.Drawing;
-
-using SP_Management.Classes.Data.Employee;
 using System.Windows.Controls;
 using System.Web;
 using Font = iTextSharp.text.Font;
+using SP_Management.Others;
+using SP_Management.Models.Employee;
+using SP_Management.SqlActions;
 
 namespace SP_Management.Pages.HumanResourcePage
 {
@@ -24,20 +24,20 @@ namespace SP_Management.Pages.HumanResourcePage
     {
         DataTable SourceEmpDataTable;
         DataTable EmpDataTable;
-        Employees[] SourceEmpData;
-        Employees[] EmpData;
+        Employee[] SourceEmpData;
+        Employee[] EmpData;
         public UserlistPage()
         {
             InitializeComponent();
             GetAll getdate = new GetAll();
-            SourceEmpDataTable = getdate.GetEmployee();
+            SourceEmpDataTable = getdate.GetData("Employees");
             EmpDataTable = SourceEmpDataTable.Copy();
             Console.WriteLine(EmpDataTable.Rows.Count);
-            SourceEmpData = new Employees[EmpDataTable.Rows.Count];
+            SourceEmpData = new Employee[EmpDataTable.Rows.Count];
             int idx = 0;
             foreach (DataRow item in EmpDataTable.Rows)
             {
-                SourceEmpData[idx] = new Employees();
+                SourceEmpData[idx] = new Employee();
                 SourceEmpData[idx].EmpID = item["EmpID"].ToString();
                 SourceEmpData[idx].EmpFName = item["EmpFName"].ToString();
                 SourceEmpData[idx].EmpLName = item["EmpLName"].ToString();
@@ -56,7 +56,7 @@ namespace SP_Management.Pages.HumanResourcePage
             AddTable();
         }
 
-        void AddTable(string sort = "asc")
+        public void AddTable(string sort = "asc")
         {
             BodyPanel.Controls.Clear();
             if (sort == "asc")
@@ -120,7 +120,7 @@ namespace SP_Management.Pages.HumanResourcePage
                     /*  string path = @"test.pdf";*/
                     if (sfd.ShowDialog() == DialogResult.OK)
                     {
-                        ExportFromGridView(EmpDataTable, sfd.FileName, "Employees List");
+                        ExportDataTableToPdf(EmpDataTable, sfd.FileName, "Employees List");
                         System.Diagnostics.Process.Start(sfd.FileName);
                     }
 

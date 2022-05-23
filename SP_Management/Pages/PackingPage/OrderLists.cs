@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SP_Management.Classes;
+using SP_Management.Others;
 using SP_Management.Controls.Tables;
 namespace SP_Management.Pages.PackingPage
 {

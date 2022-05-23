@@ -8,10 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SP_Management.Classes;
-using SP_Management.Classes.CRUD.Postitions;
-using SP_Management.Classes.CRUD.Employees;
-using SP_Management.Classes.Data.Employee;
+using SP_Management.Others;
+using SP_Management.Models.Employee;
+using SP_Management.SqlActions;
+
 namespace SP_Management.Pages.HumanResourcePage
 {
     public partial class DialogUser : UserControl
@@ -42,8 +42,6 @@ namespace SP_Management.Pages.HumanResourcePage
             lblTitle.Text = "EditUser";
             txtID.Enabled = false;
             //txtUsername.Enabled = false;
-            SetPosition();
-            SetDepartment();
             try
             {
                 Console.WriteLine(id);
@@ -57,8 +55,8 @@ namespace SP_Management.Pages.HumanResourcePage
 
         private void SetDepartment()
         {
-            var getposition = new Classes.CRUD.Departments.GetAll();
-            DataTable department = getposition.GetPosition();
+            var getdepartment = new GetAll();
+            DataTable department = getdepartment.GetData("Departments");
             valueCbBox[] values = new valueCbBox[department.Rows.Count];
             int idx = 0;
             foreach (DataRow pos in department.Rows)
@@ -75,8 +73,8 @@ namespace SP_Management.Pages.HumanResourcePage
 
         private void SetPosition()
         {
-            var getposition = new Classes.CRUD.Postitions.GetAll();
-            DataTable position = getposition.GetPosition();
+            var getposition = new GetAll();
+            DataTable position = getposition.GetData("Positions");
             valueCbBox[] values = new valueCbBox[position.Rows.Count];
             int idx = 0;
             foreach (DataRow pos in position.Rows)
@@ -93,9 +91,14 @@ namespace SP_Management.Pages.HumanResourcePage
 
         void GetData(string id)
         {
-            var getdata = new Classes.CRUD.Employees.GetAll();
-            DataTable EmplyeeData = new DataTable();
-            EmplyeeData = getdata.GetFullEmployee(ID: id);
+            var getdata = new GetOne();
+            DataTable EmplyeeData;
+            EmplyeeData = getdata.GetData(
+                Table:new string[] { "Employees" , "EmployeeAccounts","Departments","Positions" },
+                ColumnSelect:"e.EmpID",
+                IDSelect:id,
+                JoinColumn:new string[] { "EmpID,EmpID","DeptID,DeptID","PositionID,PositionID" },
+                CallTable:new string[] {"e,ea","e,d","e,p"});
             foreach (DataRow item in EmplyeeData.Rows)
             {
                 txtID.Text = item["EmpID"].ToString();
@@ -116,6 +119,8 @@ namespace SP_Management.Pages.HumanResourcePage
                 BirthDate.Value = Convert.ToDateTime(item["EmpBirthDay"].ToString());
                 DateHired.Value = Convert.ToDateTime(item["EmpHire"].ToString());
             }
+            SetPosition();
+            SetDepartment();
         }
 
         private void ExitBtn_Click(object sender, EventArgs e)
@@ -170,7 +175,7 @@ namespace SP_Management.Pages.HumanResourcePage
             Console.WriteLine(cbGender.SelectedItem);
             Console.WriteLine(cbDepartment.SelectedValue.ToString());
             Console.WriteLine(BirthDate.Value.ToString("yyyy-MM-dd"));
-            Employees emp = new Employees()
+            Employee emp = new Employee()
             {
                 EmpDepartment = cbDepartment.SelectedValue.ToString(),
                 EmpPosition = cbPosition.SelectedValue.ToString(),
@@ -189,14 +194,53 @@ namespace SP_Management.Pages.HumanResourcePage
             Console.WriteLine(emp.EmpGender);
             if (lblTitle.Text == "AddUser")
             {
-                Create update = new Create(){};
-                update.CreateNewEmployee(emp);
+                Insert createEmp = new Insert() { };
+                createEmp.Create("Employees",new string[] {
+                "PositionID","DeptID" ,"EmpEmail" ,"EmpFName" ,"EmpLName" ,"EmpGender" ,"EmpSalary","EmpHire","EmpBirthDay","EmpPName","EmpPhone"
+                },new string[]{
+                emp.EmpPosition.ToString(),emp.EmpDepartment.ToString(),emp.EmpEmail.ToString(),emp.EmpFName.ToString(),emp.EmpLName.ToString(),emp.EmpGender.ToString(),emp.EmpSalary.ToString(),emp.DateHire.ToString(),emp.DateBirth.ToString(),emp.EmpPName.ToString(),emp.EmpPhone
+                });
+
+                GetOne getEmp = new GetOne();
+                var dataEmp = getEmp.GetData(
+                    Table:new string[] {"Employees"},
+                    CallTable:new string[] {"e"},
+                    ColumnSelect:"EmpFName",
+                    IDSelect: emp.EmpFName
+                );
+
+                string username = "";
+                foreach (DataRow data in dataEmp.Rows)
+                {
+                    username = data["EmpID"].ToString();
+                }
+                string password = BCrypt.Net.BCrypt.HashPassword("1234", GetRandomSalt());
+                Insert createAcc = new Insert() { };
+                createAcc.Create("EmployeeAccounts", new string[] {
+               "EmpID","EmpUsername","EmpPassword"
+                }, new string[]{
+                username,emp.EmpUsername,password
+                });
+                Toast.Success("เพิ่มสำเร็จ");
             }
             else if (lblTitle.Text == "EditUser")
             {
-                Update update = new Update() { };
-                update.UpdateEmployee(emp);
+                Update update = new Update();
+                update.Updatedata(Table:"Employees" , ColoumnUpdate:new string[]
+                {
+                    "PositionID"  ,"DeptID" ,"EmpEmail","EmpFName","EmpLName","EmpGender" ,"EmpSalary","EmpHire","EmpBirthDay","EmpPName"  ,"EmpPhone"
+                },
+                ColumnValue:new string[] {
+                 emp.EmpPosition ,  emp.EmpDepartment ,  emp.EmpEmail, emp.EmpFName,  emp.EmpLName, emp.EmpGender, emp.EmpSalary, emp.DateHire,  emp.DateBirth, emp.EmpPName, emp.EmpPhone
+                },
+                SelectRowUpdate:"EmpID",
+                SelectValue:emp.EmpID);
+                Toast.Success("เพิ่มสำเร็จ");
             }
+        }
+        private string GetRandomSalt()
+        {
+            return BCrypt.Net.BCrypt.GenerateSalt(12);
         }
 
         private void DialogUser_Load(object sender, EventArgs e)
