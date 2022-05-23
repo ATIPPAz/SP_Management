@@ -7,10 +7,11 @@ using System.Text;
 using System.Threading.Tasks;
 using SP_Management.Classes.Data.Employee;
 
-namespace SP_Management.Classes.CRUD
+namespace SP_Management.Classes.CRUD.Employees
 {
     public class GetAll
     {
+       
         public DataTable GetEmployee(string ID ="")
         {
             DataTable dataTable = new DataTable();
@@ -36,6 +37,32 @@ namespace SP_Management.Classes.CRUD
             }
             return dataTable;
         }
+        public DataTable GetFullEmployee(string ID = "")
+        {
+            DataTable dataTable = new DataTable();
+            using (SqlConnection connection = new SqlConnection(MiddleStore.ConnectPath))
+            {
+                string cmd;
+                if (ID != "")
+                {
+                    cmd = $"Select * from dbo.Employees as e INNER Join dbo.Departments d On d.DeptID = e.DeptID Inner join dbo.Positions p on e.PositionID = p.PositionID left join EmployeeAccounts ea on ea.EmpID = e.EmpID Where e.EmpID = '{ID}'";
+                }
+                else
+                {
+                    cmd = "Select * from dbo.Employees as e INNER Join dbo.Departments d On d.DeptID = e.DeptID Inner join dbo.Positions p on e.PositionID = p.PositionID order by e.EmpID desc";
+                }
+                SqlCommand SqlCmd = new SqlCommand(cmd, connection);
+                SqlDataAdapter Adapter = new SqlDataAdapter();
+                Adapter.SelectCommand = SqlCmd;
+                Adapter.Fill(dataTable);
+                connection.Close();
+                connection.Dispose();
+                Adapter.Dispose();
+                SqlCmd.Dispose();
+            }
+            return dataTable;
+        }
+
     }
     public class GetOne
     {
@@ -57,7 +84,7 @@ namespace SP_Management.Classes.CRUD
                     }
                     else
                     {
-                       return new DataTable();
+                       return new DataTable(); 
                     }
                     SqlCommand SqlCmd = new SqlCommand(cmd, connection);
                     SqlDataAdapter Adapter = new SqlDataAdapter();

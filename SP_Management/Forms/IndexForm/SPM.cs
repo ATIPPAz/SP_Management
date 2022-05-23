@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SP_Management.Classes;
 using SP_Management.Classes.Data.Employee;
-using SP_Management.Classes.CRUD;
+using SP_Management.Classes.CRUD.Employees;
 namespace SP_Management
 {
     public partial class SPM : Form
