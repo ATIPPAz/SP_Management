@@ -240,25 +240,16 @@ namespace SP_Management
                     string EmpID = "";
                     foreach (DataRow row in emp.Rows)
                     {
-                       /* MiddleStore.EmpRule = row["DeptID"].ToString();*/
-                        password = row["EmpPassword"].ToString();
-                        EmpID = row["EmpID"].ToString();
-                       /* rule = row["DeptName"].ToString();*/
-                    }
-                    /*GetAll getDatas = new GetAll();
-                    foreach (DataRow row in emp.Rows)
-                    {
-                        MiddleStore.EmpRule = row["DeptID"].ToString();
                         password = row["EmpPassword"].ToString();
                         EmpID = row["EmpID"].ToString();
                     }
-                    emp = getDatas.GetFullEmployee(ID: EmpID);*/
                     if (!string.IsNullOrEmpty(password))
                     {
                         if (BCrypt.Net.BCrypt.Verify(PasswordText.Text, password))
                         {
                             Toast.Success("Login Success\n"+ rule);
-                            Route.index.ReciptID(EmpID);
+                            //Route.index.ReciptID(EmpID);
+                            MiddleStore.EmpID = EmpID;
                             Route.OpenIndex();
                             Route.CloseLoginForm();
                         }

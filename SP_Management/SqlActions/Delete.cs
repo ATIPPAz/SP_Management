@@ -8,28 +8,19 @@ using System.Threading.Tasks;
 
 namespace SP_Management.SqlActions
 {
-    public class Update
+    public class Delete
     {
-        public void Updatedata(string Table, string[] ColoumnUpdate, string[] ColumnValue,string SelectRowUpdate,string SelectValue)
+        public void DeleteData(string Table, string[] ColumnSelect,string[] ColumnValue)
         {
             Console.WriteLine("sdsds");
             string cmd;
             try
             {
-                cmd = $"UPDATE [dbo].[{Table}] ";
-                cmd += $"SET ";
-                for (int i = 0; i < ColoumnUpdate.Length; i++)
+                cmd = $"DELETE FROM [dbo].[{Table}] Where ";
+                for (int i = 0; i < ColumnSelect.Length; i++)
                 {
-                    if (i == ColoumnUpdate.Length - 1)
-                    {
-                        cmd += $"[{ColoumnUpdate[i]}] = '{ColumnValue[i]}' ";
-                    }
-                    else
-                    {
-                        cmd += $"[{ColoumnUpdate[i]}] = '{ColumnValue[i]}',";
-                    }
+                    cmd += $"( {ColumnSelect[i]} = '{ColumnValue[i]}') ";
                 }
-                cmd += $"WHERE [{SelectRowUpdate}] = '{SelectValue}'";
                 Console.WriteLine(cmd);
                 using (SqlConnection connection = new SqlConnection(MiddleStore.ConnectPath))
                 {
