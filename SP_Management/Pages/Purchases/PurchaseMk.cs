@@ -11,21 +11,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SP_Management.Pages.ProductList
+namespace SP_Management.Pages.Purchases
 {
-    public partial class ProductListMk : UserControl
+    public partial class PurchaseMk : UserControl
     {
-        public ProductListMk()
+        public PurchaseMk()
         {
             InitializeComponent();
-             HeaderTable header = new HeaderTable();
+            HeaderTable header = new HeaderTable();
             header.CreateHeader(
                    Size: new float[]{
-                        20,25,10,10,20,10
+                        20,20,20,20,20
                    },
                    HeaderText: new string[]
                    {
-                        "Name","Description","Price","Qty","ImageUrl","Action"
+                        "PurchID","Created","EmployeeID","Remark","Action"
                    },
                    panel: HeaderPanel
                );
@@ -34,57 +34,58 @@ namespace SP_Management.Pages.ProductList
         DataTable table;
         void AddTable()
         {
+
             BodyPanel.Controls.Clear();
             BodyTable body = new BodyTable();
             GetOne getProduct = new GetOne();
              table = getProduct.GetData(
-                Table:new string []{ "Products","ProductDetails" }
-                ,ColumnSelect:"ProdStatusID",
-                IDSelect:"PS002",
-                CallTable:new string[] {"p,pd"},
-                JoinColumn:new string[]
-                {
-                    "ProdDetailID,ProdDetailID"
-                }
+                Table: new string[] { "Purchases" }
+                , ColumnSelect: "StatusID",
+                IDSelect: "ST001",
+                CallTable: new string[] { "p" }
                 );
             foreach (DataRow item in table.Rows)
             {
-                string propDeID = "";
-                propDeID = item["ProdDetailID"].ToString();
                 body.CreateBody(
-                   Size: new float[] { 20, 25, 10, 10, 20,5,5 },
+                   Size: new float[] { 20, 20, 20, 20, 10,10 },
                    BodyText: new string[] {
-                        item["ProdName"].ToString(),
-                        item["ProdDest"].ToString(),
-                        item["ProdPrice"].ToString(),
-                        item["ProdQty"].ToString(),
-                        item["ProdImage"].ToString(),
+                        item["PurchID"].ToString(),
+                        item["CreatePur"].ToString(),
+                        item["EmpCrePur"].ToString(),
+                        item["Annotation"].ToString()
                    },
-                   img: new Image[] { Properties.Resources.PencillIcon,Properties.Resources.Correct },
+                   img: new Image[] { Properties.Resources.PencillIcon, Properties.Resources.DeleteIcon },
                    panel: BodyPanel);
 
                 //edit
-                Update updateStatud = new Update();
+                Insert updateStatud = new Insert();
                 body.EditBtn.Click += new EventHandler((object o, EventArgs e) =>
                 {
                     //opendialog
                     //updateStatud.Updatedata(SelectRowUpdate: "OrderID", SelectValue: item["OrderID"].ToString(), Table: "Orders", ColoumnUpdate: new string[] { "OrStatusID" }, ColumnValue: new string[] { "OS03" });
+                    Route.index.OpenNewUserPage();
                     AddTable();
                 });
                 //update
+                Delete delete = new Delete();
                 body.DeleteBtn.Click += new EventHandler((object o, EventArgs e) =>
-                     {
-                         updateStatud.Updatedata(SelectRowUpdate: "ProdDetailID", SelectValue: item["ProdDetailID"].ToString(), Table: "ProductDetails", ColoumnUpdate: new string[] { "ProdStatusID" }, ColumnValue: new string[] { "PS001" });
-                         AddTable();
+                {
+                    delete.DeleteData(
+                        Table: "Purchases",
+                        ColumnSelect: new string[] {
+                    "PurchID"
+                    }, ColumnValue: new string[] {
+                     item["PurchID"].ToString()
+                    }) ;
+                    AddTable();
                 });
             }
-
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             Pdf pdf = new Pdf();
-            pdf.print(table,"Product");
+            pdf.print(table,"Purchase");
         }
 
         private void button5_Click(object sender, EventArgs e)

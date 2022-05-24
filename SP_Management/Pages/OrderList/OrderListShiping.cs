@@ -1,4 +1,5 @@
 ﻿using SP_Management.Controls.Tables;
+using SP_Management.Others;
 using SP_Management.SqlActions;
 using System;
 using System.Collections.Generic;
@@ -25,13 +26,13 @@ namespace SP_Management.Pages.OrderList
             header.CreateHeader(new float[] { 10, 20, 15, 15, 10, 10 }, new string[] { "OrderID", "OrderDate", "CreateDate", "ShipID", "Remark", "Ation" }, HeaderPanel);
             CreateBody();
         }
-
+        DataTable Orderlist;
         private void CreateBody()
         {
             BodyPanel.Controls.Clear();
             BodyTable body = new BodyTable();
             GetOne getOrder = new GetOne();
-            DataTable Orderlist = getOrder.GetData(Table: new string[] { "Orders" }, CallTable: new string[] { "o" }, ColumnSelect: "OrStatusID", IDSelect: "OS03");
+             Orderlist = getOrder.GetData(Table: new string[] { "Orders" }, CallTable: new string[] { "o" }, ColumnSelect: "OrStatusID", IDSelect: "OS03");
             foreach (DataRow item in Orderlist.Rows)
             {
                 body.CreateBody(
@@ -55,5 +56,17 @@ namespace SP_Management.Pages.OrderList
                 });
             }
             }
+
+        private void ToPdfBtn_Click(object sender, EventArgs e)
+        {
+            Pdf p = new Pdf();
+            p.print(Orderlist, "OrderList");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Excel ex = new Excel();
+            ex.Print(Orderlist);
+        }
     }
 }

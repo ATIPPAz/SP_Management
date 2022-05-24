@@ -8,6 +8,7 @@ using SP_Management.Pages.HumanResourcePage;
 using SP_Management.Pages.OrderList;
 using SP_Management.Pages.PackingPage;
 using SP_Management.Pages.ProductList;
+using SP_Management.Pages.Purchases;
 
 namespace SP_Management.Others
 {
@@ -42,6 +43,15 @@ namespace SP_Management.Others
                 {
                     page = new ProductListMk();
                     PageCurrent = "ProductListMk";
+                }
+                else if (pageSelct == "PurchaseMk")
+                {
+                    page = new PurchaseMk();
+                    PageCurrent = "PurchaseMk";
+                }else if(pageSelct == "PurchasePc")
+                {
+                    page = new PurchasePc();
+                    PageCurrent = "PurchaseMk";
                 }
                 page.Dock = DockStyle.Fill;
                 panel.Controls.Add(page);

@@ -215,72 +215,10 @@ namespace SP_Management.Pages.HumanResourcePage
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            Excel ex = new Excel();
+            ex.Print(EmpDataTable);
         }
-        public static void ExportFromGridView(DataTable gvControl, string strPdfPath, string strHeader)
-        {
-            /*System.IO.FileStream fs = new FileStream(strPdfPath, FileMode.Create, FileAccess.Write, FileShare.None);
-            Document document = new Document();
-            document.SetPageSize(iTextSharp.text.PageSize.A4);
-            PdfWriter writer = PdfWriter.GetInstance(document, fs);
-            document.Open();*/
-            // สร้าง BaseFont 
-            BaseFont bf = BaseFont.CreateFont(HttpContext.Current.Server.MapPath("~/THSarabun.ttf"), BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
-            // กำหนดขนาดของ Pdf
-            Document pdfDoc = new Document(PageSize.A4, 10, 10, 10, 10);
-
-            try
-            {
-                // สร้าง instance ของ PdfWriter
-                PdfWriter.GetInstance(pdfDoc, System.Web.HttpContext.Current.Response.OutputStream);
-                pdfDoc.Open();
-
-                // สร้าง Font จาก BaseFont 
-                Font fnt = new Font(bf, 11);
-
-                // สร้าง PdfTable จาก GridView Control
-                PdfPTable PdfTable = new PdfPTable(gvControl.Columns.Count);
-                PdfPCell PdfPCell = null;
-
-                // Write Header ที่ PdfCell ใน PdfTable
-                for (int i = 0; i < gvControl.Columns.Count; i++)
-                {
-                    PdfPCell cell = new PdfPCell();
-                    cell.BackgroundColor = BaseColor.GRAY;
-                    cell.AddElement(new Chunk(gvControl.Columns[i].ColumnName.ToUpper(), fnt));
-                    PdfTable.AddCell(cell);
-                }
-
-                // Write Data ที่ PdfCell ใน PdfTable
-                for (int i = 0; i < gvControl.Rows.Count; i++)
-                {
-                    for (int j = 0; j < gvControl.Columns.Count; j++)
-                    {
-                        PdfPCell = new PdfPCell(new Phrase(new Chunk(gvControl.Rows[i][j].ToString(), fnt)));
-                        PdfTable.AddCell(PdfPCell);
-                    }
-                }
-
-                // Add PdfTable ลง pdfDoc
-                pdfDoc.Add(PdfTable);
-                // Close document
-                pdfDoc.Close();
-                // กำหนด ContentType เป็น application/pdf เพื่อ Response เป็น Pdf
-                HttpContext.Current.Response.ContentType = "application/pdf";
-                // กำหนดชื่อไฟล์ที่ต้องการ Export
-                HttpContext.Current.Response.AddHeader("content-disposition", "attachment; filename=" + DateTime.Now.ToString("yyyyMMdd") + ".pdf");
-                // Export Pdf
-                System.Web.HttpContext.Current.Response.Write(pdfDoc);
-
-                HttpContext.Current.Response.Flush();
-                HttpContext.Current.Response.End();
-
-            }
-            catch (Exception ex)
-            {
-                HttpContext.Current.Response.Write(ex.ToString());
-            }
-        }
+       
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {

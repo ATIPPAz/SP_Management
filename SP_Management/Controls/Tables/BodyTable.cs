@@ -15,7 +15,7 @@ namespace SP_Management.Controls.Tables
         public PictureBox EditBtn;
         public PictureBox DeleteBtn;
         public TableLayoutPanel Body;
-        public void CreateBody(float[] Size, string[] BodyText, Panel panel,Image[] img,float Fontsize = 14.25F,string Fontfamily = "Nirmala UI", FontStyle Fontstyle = FontStyle.Bold, string BackColor = "62,148,239", string FontColor = "255,255,255", string HeaderColor = "255,255,255")
+        public void CreateBody(float[] Size, string[] BodyText, Panel panel,Image[] img,float Fontsize = 14.25F,string Fontfamily = "Nirmala UI", FontStyle Fontstyle = FontStyle.Bold, string BackColor = "255,255,255", string FontColor = "0,0,0", string HeaderColor = "255,255,255")
         {
             string[] Bcolor = BackColor.Split(',');
             string[] FColor = FontColor.Split(',');
@@ -25,7 +25,7 @@ namespace SP_Management.Controls.Tables
             int idxpic = 0;
             Body = new TableLayoutPanel();
             Body.Height = 30;
-            Body.CellBorderStyle = TableLayoutPanelCellBorderStyle.Outset;
+            //Body.CellBorderStyle = TableLayoutPanelCellBorderStyle.Outset;
             Body.AutoSize = false;
             Body.RowCount = 1;
             Body.ColumnCount = Size.Length;

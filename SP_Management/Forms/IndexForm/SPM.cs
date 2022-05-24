@@ -416,5 +416,21 @@ namespace SP_Management
             PagesManager.OpenPage("Shipping", DisplayPanel, true);
             DialogPanel.SendToBack();
         }
+        public void OpenPanel()
+        {
+
+        }
+      
+        private void CreatePurchaseMktBtn_Click(object sender, EventArgs e)
+        {
+            PagesManager.OpenPage("PurchaseMk", DisplayPanel, true);
+            DialogPanel.SendToBack();
+        }
+
+        private void PurchasePcBtn_Click(object sender, EventArgs e)
+        {
+            PagesManager.OpenPage("PurchasePc", DisplayPanel, true);
+            DialogPanel.SendToBack();
+        }
     }
 }

@@ -31,12 +31,13 @@ namespace SP_Management.Pages.PackingPage
 
 
         }
+        DataTable Orderlist;
         void CreateBody()
         {
             BodyPanel.Controls.Clear();
             BodyTable body = new BodyTable();
             GetOne getOrder = new GetOne();
-            DataTable Orderlist = getOrder.GetData(Table: new string[] { "Orders" }, CallTable: new string[] { "o" }, ColumnSelect: "OrStatusID", IDSelect: "OS02");
+             Orderlist = getOrder.GetData(Table: new string[] { "Orders" }, CallTable: new string[] { "o" }, ColumnSelect: "OrStatusID", IDSelect: "OS02");
             foreach (DataRow item in Orderlist.Rows)
             {
                 body.CreateBody(
@@ -59,7 +60,19 @@ namespace SP_Management.Pages.PackingPage
             }
 
                 }
-            }
+
+        private void ToPdfBtn_Click(object sender, EventArgs e)
+        {
+            Pdf p = new Pdf();
+            p.print(Orderlist, "OrderList");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Excel ex = new Excel();
+            ex.Print(Orderlist);
+        }
+    }
         }
     
 
