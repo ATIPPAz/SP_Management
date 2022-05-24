@@ -48,14 +48,186 @@ namespace SP_Management
                 Route.isStartUp = false;
                 Route.index.Hide();
             }
-            DataTable EmplyeeData = new DataTable();
-            var getdata = new GetOne();
-            EmplyeeData = getdata.GetData(ColumnSelect:"EmpUsername",Table: new string[] { "Employees", "EmployeeAccounts" }, CallTable: new string[] { "e,ea" }, IDSelect: EmpID,JoinColumn:new string[] {"EmpID,EmpID"});
-            //fillter with rule employee
-            LoadMenuListBtn();
         }
-        void LoadMenuListBtn()
+        public void LoadMenuListBtn()
         {
+            if (MiddleStore.EmpRuleID == "D01" || MiddleStore.EmpRuleID == "D09")
+            {
+                /*MarketingBtn.Show();
+                CreateProductMktBtn.Show();
+                CreatePurchaseMktBtn.Show();
+                WarehouseBtn.Show();
+                ReceiptionWhBtn.Show();
+                RequisitionWhBtn.Show();
+                PackingBtn.Show();
+                OrderPkBtn.Show();
+                RequisitionPkBtn.Show();
+                PurchasePcBtn.Show();
+                ReceiptionPcBtn.Show();
+                PurchasingBtn.Show();
+                FinanceBtn.Show();
+                ExpensesFnBtn.Show();
+                RevenueFnBtn.Show();
+                HrBtn.Show();
+                UserlistHrBtn.Show();
+                ShippingBtn.Show();
+                OrdersSpBtn.Show();*/
+            }
+            else if(MiddleStore.EmpRuleID == "D02")
+            {
+                MarketingBtn.Hide();
+                CreateProductMktBtn.Hide();
+                CreatePurchaseMktBtn.Hide();
+                WarehouseBtn.Hide();
+                ReceiptionWhBtn.Hide();
+                RequisitionWhBtn.Hide();
+                PackingBtn.Hide();
+                OrderPkBtn.Hide();
+                RequisitionPkBtn.Hide();
+                PurchasePcBtn.Hide();
+                ReceiptionPcBtn.Hide();
+                PurchasingBtn.Hide();
+                FinanceBtn.Show();
+                /*ExpensesFnBtn.Show();
+                RevenueFnBtn.Show();*/
+                HrBtn.Hide();
+                UserlistHrBtn.Hide();
+                ShippingBtn.Hide();
+                OrdersSpBtn.Hide();
+            }
+            else if (MiddleStore.EmpRuleID == "D03")
+            {
+                MarketingBtn.Hide();
+                CreateProductMktBtn.Hide();
+                CreatePurchaseMktBtn.Hide();
+                /*WarehouseBtn.Show();
+                ReceiptionWhBtn.Show();
+                RequisitionWhBtn.Show();*/
+                PackingBtn.Hide();
+                OrderPkBtn.Hide();
+                RequisitionPkBtn.Hide();
+                PurchasePcBtn.Hide();
+                ReceiptionPcBtn.Hide();
+                PurchasingBtn.Hide();
+                FinanceBtn.Hide();
+                ExpensesFnBtn.Hide();
+                RevenueFnBtn.Hide();
+                HrBtn.Hide();
+                UserlistHrBtn.Hide();
+                ShippingBtn.Hide();
+                OrdersSpBtn.Hide();
+            }
+            else if (MiddleStore.EmpRuleID == "D04")
+            {
+              /*  MarketingBtn.Show();
+                CreateProductMktBtn.Show();
+                CreatePurchaseMktBtn.Show();*/
+                WarehouseBtn.Hide();
+                ReceiptionWhBtn.Hide();
+                RequisitionWhBtn.Hide();
+                PackingBtn.Hide();
+                //OrderPkBtn.Show();
+                RequisitionPkBtn.Hide();
+                PurchasePcBtn.Hide();
+                ReceiptionPcBtn.Hide();
+                PurchasingBtn.Hide();
+                FinanceBtn.Hide();
+                ExpensesFnBtn.Hide();
+                RevenueFnBtn.Hide();
+                HrBtn.Hide();
+                UserlistHrBtn.Hide();
+                ShippingBtn.Hide();
+                OrdersSpBtn.Hide();
+            }
+            else if (MiddleStore.EmpRuleID == "D05")
+            {
+                MarketingBtn.Hide();
+                CreateProductMktBtn.Hide();
+                CreatePurchaseMktBtn.Hide();
+                WarehouseBtn.Hide();
+                ReceiptionWhBtn.Hide();
+                RequisitionWhBtn.Hide();
+                PackingBtn.Hide();
+                OrderPkBtn.Hide();
+                RequisitionPkBtn.Hide();
+              /*  PurchasePcBtn.Show();
+                ReceiptionPcBtn.Show();
+                PurchasingBtn.Show();*/
+                FinanceBtn.Hide();
+                ExpensesFnBtn.Hide();
+                RevenueFnBtn.Hide();
+                HrBtn.Hide();
+                UserlistHrBtn.Hide();
+                ShippingBtn.Hide();
+                OrdersSpBtn.Hide();
+            }
+            else if (MiddleStore.EmpRuleID == "D06")
+            {
+                MarketingBtn.Hide();
+                CreateProductMktBtn.Hide();
+                CreatePurchaseMktBtn.Hide();
+                WarehouseBtn.Hide();
+                ReceiptionWhBtn.Hide();
+                RequisitionWhBtn.Hide();
+                PackingBtn.Hide();
+                OrderPkBtn.Hide();
+                RequisitionPkBtn.Hide();
+                PurchasePcBtn.Hide();
+                ReceiptionPcBtn.Hide();
+                PurchasingBtn.Hide();
+                FinanceBtn.Hide();
+                ExpensesFnBtn.Hide();
+                RevenueFnBtn.Hide();
+               /* HrBtn.Show();
+                UserlistHrBtn.Show();*/
+                ShippingBtn.Hide();
+                OrdersSpBtn.Hide();
+            }
+            else if (MiddleStore.EmpRuleID == "D07")
+            {
+                MarketingBtn.Hide();
+                CreateProductMktBtn.Hide();
+                CreatePurchaseMktBtn.Hide();
+                WarehouseBtn.Hide();
+                ReceiptionWhBtn.Hide();
+                RequisitionWhBtn.Hide();
+                /*PackingBtn.Show();
+                OrderPkBtn.Show();*/
+                RequisitionPkBtn.Hide();
+                PurchasePcBtn.Hide();
+                ReceiptionPcBtn.Hide();
+                PurchasingBtn.Hide();
+                FinanceBtn.Hide();
+                ExpensesFnBtn.Hide();
+                RevenueFnBtn.Hide();
+                HrBtn.Hide();
+                UserlistHrBtn.Hide();
+                ShippingBtn.Hide();
+                OrdersSpBtn.Hide();
+            }
+            else if (MiddleStore.EmpRuleID == "D08")
+            {
+                MarketingBtn.Hide();
+                CreateProductMktBtn.Hide();
+                CreatePurchaseMktBtn.Hide();
+                WarehouseBtn.Hide();
+                ReceiptionWhBtn.Hide();
+                RequisitionWhBtn.Hide();
+                PackingBtn.Hide();
+                OrderPkBtn.Hide();
+                RequisitionPkBtn.Hide();
+                PurchasePcBtn.Hide();
+                ReceiptionPcBtn.Hide();
+                PurchasingBtn.Hide();
+                FinanceBtn.Hide();
+                ExpensesFnBtn.Hide();
+                RevenueFnBtn.Hide();
+                HrBtn.Hide();
+                UserlistHrBtn.Hide();
+               /* ShippingBtn.Show();
+                OrdersSpBtn.Show();*/
+            }
+           
             /*foreach (DataRow item in data)
             {
                 
@@ -212,7 +384,8 @@ namespace SP_Management
 
         private void CreateProductMktBtn_Click(object sender, EventArgs e)
         {
-            PagesManager.OpenPage("", DisplayPanel, true);
+            PagesManager.OpenPage("ProductListMk", DisplayPanel, true);
+            DialogPanel.SendToBack();
         }
         public void OpenNewUserPage()
         {
@@ -232,7 +405,16 @@ namespace SP_Management
 
         private void OrderPkBtn_Click(object sender, EventArgs e)
         {
+           
             PagesManager.OpenPage("OrderPk", DisplayPanel, true);
+            DialogPanel.SendToBack();
+        }
+
+        private void OrdersSpBtn_Click(object sender, EventArgs e)
+        {
+           
+            PagesManager.OpenPage("Shipping", DisplayPanel, true);
+            DialogPanel.SendToBack();
         }
     }
 }

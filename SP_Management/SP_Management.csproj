@@ -132,16 +132,29 @@
     <Compile Include="Forms\IndexForm\SPM.Designer.cs">
       <DependentUpon>SPM.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PackingPage\OrderLists.cs">
+    <Compile Include="Pages\OrderList\OrderListShiping.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Pages\PackingPage\OrderLists.Designer.cs">
-      <DependentUpon>OrderLists.cs</DependentUpon>
+    <Compile Include="Pages\OrderList\OrderListShiping.Designer.cs">
+      <DependentUpon>OrderListShiping.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OrderList\OrderListsPacking.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\OrderList\OrderListsPacking.Designer.cs">
+      <DependentUpon>OrderListsPacking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProductList\ProductListMk.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\ProductList\ProductListMk.Designer.cs">
+      <DependentUpon>ProductListMk.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlActions\Select.cs" />
     <Compile Include="SqlActions\Insert.cs" />
+    <Compile Include="SqlActions\Delete.cs" />
     <Compile Include="SqlActions\Update.cs" />
     <EmbeddedResource Include="Controls\Tables\TableExample.resx">
       <DependentUpon>TableExample.cs</DependentUpon>
@@ -162,8 +175,14 @@
     <EmbeddedResource Include="Forms\IndexForm\SPM.resx">
       <DependentUpon>SPM.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\PackingPage\OrderLists.resx">
-      <DependentUpon>OrderLists.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\OrderList\OrderListShiping.resx">
+      <DependentUpon>OrderListShiping.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\OrderList\OrderListsPacking.resx">
+      <DependentUpon>OrderListsPacking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ProductList\ProductListMk.resx">
+      <DependentUpon>ProductListMk.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -190,6 +209,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Correct.png" />
+    <None Include="Resources\CorrectMesIcon.png" />
     <Content Include="Resources\images\DeleteIcon.png" />
     <Content Include="Resources\images\DownArrow.png" />
     <Content Include="Resources\images\MarketingIcon.png" />

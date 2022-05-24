@@ -15,7 +15,7 @@ namespace SP_Management.Controls.Tables
         public PictureBox EditBtn;
         public PictureBox DeleteBtn;
         public TableLayoutPanel Body;
-        public void CreateBody(float[] Size, string[] BodyText, Panel panel,Image[] img , float Fontsize = 14.25F,string Fontfamily = "Nirmala UI", FontStyle Fontstyle = FontStyle.Bold, string BackColor = "62,148,239", string FontColor = "255,255,255", string HeaderColor = "255,255,255")
+        public void CreateBody(float[] Size, string[] BodyText, Panel panel,Image[] img,float Fontsize = 14.25F,string Fontfamily = "Nirmala UI", FontStyle Fontstyle = FontStyle.Bold, string BackColor = "62,148,239", string FontColor = "255,255,255", string HeaderColor = "255,255,255")
         {
             string[] Bcolor = BackColor.Split(',');
             string[] FColor = FontColor.Split(',');
@@ -44,17 +44,20 @@ namespace SP_Management.Controls.Tables
                             Dock = DockStyle.Fill,
                             SizeMode = PictureBoxSizeMode.Zoom,
                             BackColor = Color.Transparent,
+                            Cursor = Cursors.Hand,
                         };
                         Body.Controls.Add(EditBtn, i, 0);
                     }
                     else
                     {
+
                         DeleteBtn = new PictureBox()
                         {
                             Image = img[idxpic],
                             Dock = DockStyle.Fill,
                             SizeMode = PictureBoxSizeMode.Zoom,
                             BackColor = Color.Transparent,
+                            Cursor = Cursors.Hand,
                         };
                         Body.Controls.Add(DeleteBtn, i, 0);
                     }
@@ -74,8 +77,8 @@ namespace SP_Management.Controls.Tables
                         BackColor = Color.FromArgb(Convert.ToInt32(Bcolor[0]), Convert.ToInt32(Bcolor[1]), Convert.ToInt32(Bcolor[2])),
                     }, i, 0);
                 }
-
             }
+           
             Body.Dock = DockStyle.Top;
             panel.Controls.Add(Body);
         }

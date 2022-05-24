@@ -156,6 +156,7 @@
             this.OrdersSpBtn.Text = "OrdersList";
             this.OrdersSpBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.OrdersSpBtn.UseVisualStyleBackColor = false;
+            this.OrdersSpBtn.Click += new System.EventHandler(this.OrdersSpBtn_Click);
             // 
             // ShippingBtn
             // 

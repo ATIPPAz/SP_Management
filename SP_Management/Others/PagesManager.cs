@@ -5,7 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SP_Management.Pages.HumanResourcePage;
+using SP_Management.Pages.OrderList;
 using SP_Management.Pages.PackingPage;
+using SP_Management.Pages.ProductList;
+
 namespace SP_Management.Others
 {
     public class PagesManager
@@ -21,15 +24,24 @@ namespace SP_Management.Others
             }
             if(pageSelct !="")
             {
-                if (pageSelct == "Userlist" && PageCurrent!= "Userlist") 
+                if (pageSelct == "Userlist" && PageCurrent != "Userlist")
                 {
                     page = new UserlistPage();
                     PageCurrent = "Userlist";
                 }
-                else if(pageSelct == "OrderPk")
+                else if (pageSelct == "OrderPk")
                 {
-                    page = new OrderLists();
+                    page = new OrderListsPacking();
                     PageCurrent = "OrderPk";
+                }
+                else if(pageSelct == "Shipping")
+                {
+                    page = new OrderListShiping();
+                    PageCurrent = "Shipping";
+                }else if (pageSelct == "ProductListMk")
+                {
+                    page = new ProductListMk();
+                    PageCurrent = "ProductListMk";
                 }
                 page.Dock = DockStyle.Fill;
                 panel.Controls.Add(page);
@@ -49,7 +61,7 @@ namespace SP_Management.Others
                     Dialog = new DialogUser(id);
                     PageCurrent = "EditUser";
                 }
-                else if (pageSelct == "AddUser" && PageCurrent != "AddUser")
+                else if (pageSelct == "AddUser" && PageCurrent != "AddUser" )
                 {
                     Dialog = new DialogUser();
                     PageCurrent = "AddUser";
