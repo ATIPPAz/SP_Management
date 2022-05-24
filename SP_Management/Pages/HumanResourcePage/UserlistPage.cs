@@ -43,21 +43,24 @@ namespace SP_Management.Pages.HumanResourcePage
             BodyPanel.Controls.Clear();
             GetAll getdate = new GetAll();
             EmpDataTable = getdate.GetData("Employees");
+
             //EmpDataTable = getdate.GetData("Employees");
-            /*int idx = 0;*/
-            /* foreach (DataRow item in EmpDataTable.Rows)
+            EmpData = new Employee[EmpDataTable.Rows.Count] ;
+
+            int idx = 0;
+             foreach (DataRow item in EmpDataTable.Rows)
              {
-                 SourceEmpData[idx] = new Employee();
-                 SourceEmpData[idx].EmpID = item["EmpID"].ToString();
-                 SourceEmpData[idx].EmpFName = item["EmpFName"].ToString();
-                 SourceEmpData[idx].EmpLName = item["EmpLName"].ToString();
-                 SourceEmpData[idx].EmpPhone = item["EmpPhone"].ToString();
-                 SourceEmpData[idx].EmpDepartment = item["DeptID"].ToString();
-                 SourceEmpData[idx].EmpPosition = item["PositionID"].ToString();
-                 SourceEmpData[idx].EmpEmail = item["EmpEmail"].ToString();
+                EmpData[idx] = new Employee();
+                EmpData[idx].EmpID = item["EmpID"].ToString();
+                EmpData[idx].EmpFName = item["EmpFName"].ToString();
+                EmpData[idx].EmpLName = item["EmpLName"].ToString();
+                EmpData[idx].EmpPhone = item["EmpPhone"].ToString();
+                EmpData[idx].EmpDepartment = item["DeptID"].ToString();
+                EmpData[idx].EmpPosition = item["PositionID"].ToString();
+                EmpData[idx].EmpEmail = item["EmpEmail"].ToString();
                  idx += 1;
              }
-             EmpData = SourceEmpData;*/
+             //EmpData = SourceEmpData;*/
             /* if (sort == "asc")
              {
                  EmpData = EmpData.OrderBy(e => e.EmpID).ToArray();
@@ -225,16 +228,46 @@ namespace SP_Management.Pages.HumanResourcePage
             /* DataView dv = new DataView(SourceEmpDataTable);
              dv.RowFilter = $"EmpFName = {SearchBar.Text}"; // query example = "id = 10"
              EmpDataTable = dv.ToTable();*/
-
-
-
-
-            /*EmpData = !(SearchBar.Text == "") ? SourceEmpData.Where(emps => emps.EmpFName.Contains(SearchBar.Text)).ToArray() : SourceEmpData;
-
+            
+            if(SearchBar.Text != ""){
+                var data = EmpData.Where(emps => emps.EmpFName.Contains(SearchBar.Text)).ToArray();
+                Console.WriteLine(data);
+                BodyPanel.Controls.Clear();
+                
+                foreach (Employee item in data)
+                {
+                    BodyTable bodyTable = new BodyTable();
+                    bodyTable.CreateBody(
+                        new float[] {
+                        5.83F, 16.21F, 16.21F, 13.41F, 13.41F, 13.41F, 13.41F, 4.05F,4.05F
+                        },
+                        new string[] {
+                       item.EmpID,
+                        item.EmpFName,
+                        item.EmpLName,
+                        item.EmpPosition,
+                        item.EmpDepartment,
+                        item.EmpPhone,
+                       item.EmpEmail
+                        },
+                        BodyPanel,
+                        new System.Drawing.Image[] { Properties.Resources.PencillIcon, Properties.Resources.DeleteIcon }
+                    );
+                    Delete delete = new Delete();
+                    bodyTable.EditBtn.Click += new EventHandler((object o, EventArgs e1) => { Route.index.OpenEditUserPage(item.EmpID); });
+                    bodyTable.DeleteBtn.Click += new EventHandler((object o, EventArgs e1) => { delete.DeleteData("Employees", new string[] { "EmpID" }, new string[] { item.EmpID, }); AddTable(); });
+                   
+                }
+            }
+            else
+            {
+                AddTable("desc");
+                return;
+            }
             EmpDataTable.Rows.Clear();
-            DataRow[] dr = new DataRow[EmpData.Length];
+            /*DataRow[] dr = new DataRow[EmpData.Length];
             int idx = 0;
-            foreach (DataRow data in SourceEmpDataTable.Rows)
+            foreach (DataRow data in EmpDataTable.Rows)
             {
                 Console.WriteLine(data["EmpFName"]);
                 if (data["EmpFName"].ToString().Contains(SearchBar.Text))
@@ -243,14 +276,35 @@ namespace SP_Management.Pages.HumanResourcePage
                     dr[idx] = data;
                     idx++;
                 }
-            }
-*/
-
+            }*/
+          /*  foreach (DataRow item in EmpDataTable.Rows)
+            {
+                BodyTable bodyTable = new BodyTable();
+                bodyTable.CreateBody(
+                    new float[] {
+                        5.83F, 16.21F, 16.21F, 13.41F, 13.41F, 13.41F, 13.41F, 4.05F,4.05F
+                    },
+                    new string[] {
+                        item["EmpID"].ToString(),
+                        item["EmpFName"].ToString(),
+                        item["EmpLName"].ToString(),
+                        item["PositionID"].ToString(),
+                        item["DeptID"].ToString(),
+                        item["EmpPhone"].ToString(),
+                        item["EmpEmail"].ToString()
+                    },
+                    BodyPanel,
+                    new System.Drawing.Image[] { Properties.Resources.PencillIcon, Properties.Resources.DeleteIcon }
+                );
+                Delete delete = new Delete();
+                bodyTable.EditBtn.Click += new EventHandler((object o, EventArgs e1) => { Route.index.OpenEditUserPage(item["EmpID"].ToString()); });
+                bodyTable.DeleteBtn.Click += new EventHandler((object o, EventArgs e1) => { delete.DeleteData("Employees", new string[] { "EmpID" }, new string[] { item["EmpID"].ToString() }); AddTable(); });
+            }*/
+           
 
 
             //EmpDataTable.Rows.Add(SourceEmpDataTable.Rows.Contains(SearchBar.Text));
             /*EmpDataTable = SourceEmpDataTable.Select("EmpID Like '%" + SearchBar.Text + "%'").CopyToDataTable();*/
-            AddTable("desc");
         }
 
         private void DescBtn_Click(object sender, EventArgs e)

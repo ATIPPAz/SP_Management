@@ -49,7 +49,7 @@
             this.SearchBar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchBar.Location = new System.Drawing.Point(6, 84);
+            this.SearchBar.Location = new System.Drawing.Point(6, 65);
             this.SearchBar.Margin = new System.Windows.Forms.Padding(6);
             this.SearchBar.Name = "SearchBar";
             this.SearchBar.Size = new System.Drawing.Size(1293, 29);
@@ -103,7 +103,7 @@
             this.ToPdfBtn.BackColor = System.Drawing.Color.Red;
             this.ToPdfBtn.FlatAppearance.BorderSize = 0;
             this.ToPdfBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ToPdfBtn.Location = new System.Drawing.Point(1308, 116);
+            this.ToPdfBtn.Location = new System.Drawing.Point(1308, 103);
             this.ToPdfBtn.Name = "ToPdfBtn";
             this.ToPdfBtn.Size = new System.Drawing.Size(67, 39);
             this.ToPdfBtn.TabIndex = 1;
@@ -116,7 +116,7 @@
             this.button5.BackColor = System.Drawing.Color.LimeGreen;
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(1224, 116);
+            this.button5.Location = new System.Drawing.Point(1224, 103);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 39);
             this.button5.TabIndex = 3;
@@ -149,7 +149,7 @@
             // SearchBtn
             // 
             this.SearchBtn.Image = global::SP_Management.Properties.Resources.SearchIcon;
-            this.SearchBtn.Location = new System.Drawing.Point(1312, 84);
+            this.SearchBtn.Location = new System.Drawing.Point(1312, 65);
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(63, 29);
             this.SearchBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
